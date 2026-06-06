@@ -41,7 +41,6 @@
     min-height: 100vh;
   }
 
-  /* HEADER */
   .site-header {
     background: var(--maroon);
     color: var(--gold-light);
@@ -85,7 +84,6 @@
     letter-spacing: 0.05em;
   }
 
-  /* NAV */
   .chapter-nav {
     background: var(--card);
     border-bottom: 1px solid var(--border);
@@ -116,7 +114,6 @@
     border-color: var(--maroon);
   }
 
-  /* PROGRESS BAR */
   .progress-bar-wrap {
     background: var(--cream-dark);
     height: 3px;
@@ -129,14 +126,9 @@
     width: 0%;
   }
 
-  /* MAIN LAYOUT */
   main { max-width: 760px; margin: 0 auto; padding: 2rem 1rem 4rem; }
 
-  /* CHAPTER */
-  .chapter {
-    margin-bottom: 3.5rem;
-    display: none;
-  }
+  .chapter { margin-bottom: 3.5rem; display: none; }
   .chapter.active { display: block; }
 
   .chapter-header {
@@ -172,7 +164,6 @@
     margin-top: 2px;
   }
 
-  /* CONTENT BLOCKS */
   .note-block {
     background: var(--card);
     border: 1px solid var(--border);
@@ -199,7 +190,18 @@
   }
   .note-block p { color: var(--ink-mid); margin-bottom: 0.6rem; font-size: 15px; }
   .note-block p:last-child { margin-bottom: 0; }
-  .dzo-text { font-size: 14px; color: var(--ink-soft); font-style: italic; margin-bottom: 0.5rem; }
+  .dzo-text { font-size: 14px; color: var(--ink-soft); font-style: italic; margin-bottom: 0.5rem !important; }
+  .dzo-block {
+    background: rgba(201,168,76,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.75rem 1rem;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 0.75rem;
+    font-size: 14px;
+    color: var(--ink-soft);
+    font-style: italic;
+    line-height: 1.8;
+  }
 
   .callout {
     background: var(--orange-light);
@@ -275,7 +277,6 @@
   .tag.maroon { background: rgba(107,26,42,0.12); color: var(--maroon); }
   .tag.teal { background: var(--teal-light); color: var(--teal); }
 
-  /* QUIZ */
   .quiz-section {
     background: var(--maroon);
     border-radius: 8px;
@@ -384,7 +385,6 @@
   }
   .quiz-reset:hover { background: var(--gold-light); }
 
-  /* CHAPTER NAV FOOTER */
   .chapter-nav-footer {
     display: flex;
     justify-content: space-between;
@@ -413,22 +413,6 @@
   .nav-chapter-btn:disabled { opacity: 0.3; cursor: default; }
   .nav-chapter-btn.next { text-align: right; }
 
-  /* THEORY PILLS */
-  .theory-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--cream-dark);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 13px;
-    color: var(--ink-mid);
-    margin: 3px;
-  }
-  .theory-pill .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-
-  /* STEPS */
   .steps { list-style: none; padding: 0; margin: 0 0 1rem; }
   .steps li {
     display: flex;
@@ -453,7 +437,17 @@
     margin-top: 1px;
   }
 
-  /* MOBILE */
+  .qa-block {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .qa-block .q { font-weight: 600; color: var(--maroon); font-size: 14.5px; margin-bottom: 0.5rem; }
+  .qa-block .a { font-size: 14px; color: var(--ink-mid); }
+  .qa-block .dzo-q { color: var(--ink-soft); font-style: italic; font-size: 13.5px; margin-bottom: 0.4rem; }
+
   @media (max-width: 540px) {
     main { padding: 1.5rem 0.75rem 3rem; }
     .note-block { padding: 1rem; }
@@ -491,7 +485,7 @@
 <div class="chapter active" id="ch0">
   <div class="chapter-header">
     <span class="chapter-num">ལས་ཚན་དང་པ།</span>
-    <h2>རྩ་གཞུང་གི་སྐོར། <span class="dzo">Curriculum – An Overview</span></h2>
+    <h2>རྩ་གཞུང་གི་སྐོར། <span class="dzo">Curriculum – An Overview · སྤྱིར་བཏང་རྩ་གཞུང་གི་སྐོར།</span></h2>
   </div>
 
   <div class="teal-callout">
@@ -499,36 +493,44 @@
   </div>
 
   <div class="note-block">
-    <h3><span class="num-label">1.1</span> རྩ་གཞུང་གི་གོ་དོན། Definition</h3>
-    <p class="dzo-text">རྩ་གཞུང་ཟེར་མི་འདི་ ཤེས་ཡོན་གྱི་ལམ་སྟོན་རྩ་བའི་ཡིག་ཆ། དམིགས་ཡུལ། ནང་དོན། སློབ་སྟོན་ཐབས་ཤེས། སློབ་འབྲས་ཚུ་ཚང་སྟེ་འོངམ།</p>
+    <h3><span class="num-label">༡.༡</span> རྩ་གཞུང་གི་གོ་དོན། Definition</h3>
+    <div class="dzo-block">
+      རྩ་གཞུང་ཟེར་མི་འདི་ ཤེས་ཡོན་སློབ་སྦྱོང་(ལྷབ་སྦྱང་) གི་ལམ་སྟོན་རྩ་བའི་ཡིག་ཆ་ལུ་སླབ་ཨིན། འདི་ནང་ལུ་ ཤེས་ཡོན་གྱི་དམིགས་ཡུལ་དང་ ནང་དོན། སློབ་སྟོན་ཐབས་ཤེས། སློབ་འབྲས་ཚུ་ག་ར་ཚང་སྟེ་འོངམ་ཨིན། ཡང་ཅིན་ རྩ་གཞུང་ཟེར་མི་འདི་ རྒྱལ་ཁབ་ཀྱི་དམིགས་གཏད་འགྲུབ་ཐབས་ལུ་ ཤེས་ཡོན་གྱི་ལམ་ལུགས་ནང་ལུ་ ཤེས་ཡོན་ལྷབ་སྦྱང་གི་དམིགས་ཡུལ་དང་ལས་དོན་ག་ར་ཚང་པའི་ ལམ་སྟོན་གྱི་གཞི་རྟེན་ཡིག་ཆ་ལུ་ རྩ་གཞུང་ཟེར་སླབ་རུང་བཏུབ་ནི་ཨིན།
+    </div>
     <p>Curriculum is the guiding document of education — containing learning objectives, content, teaching methods, and learning outcomes. It also refers to the foundational framework that outlines educational purpose and activities aligned with national goals.</p>
+    <p>Society's Demand vs Students' Interest — རྩ་གཞུང་འདི་གིས་ <strong>དྲང་བདེན་ཅན་དང་དགའ་སྐྱིད་ཅན་གྱི་མི་སྡེ་བཟོ་དགོ།</strong> This is achieved through Constructive &amp; Contributive Citizens.</p>
   </div>
 
   <div class="note-block">
-    <h3>Types of Curriculum</h3>
+    <h3>རྩ་གཞུང་གི་དབྱེ་བ། Types of Curriculum</h3>
     <div class="grid-2">
       <div class="mini-card">
-        <h4>1.2 Prescribed Curriculum</h4>
-        <p>Official curriculum set by authorities (e.g. MoE Bhutan). Planned content, objectives, and standards teachers must follow.</p>
+        <h4>༡.༢ ལམ་སྟོན་བཀོད་རྒྱའི་རྩ་གཞུང་། Prescribed Curriculum</h4>
+        <div class="dzo-block" style="margin-bottom:0.5rem;">རྩ་གཞུང་སྡེ་ཚན་ཚུ་གིས་ རྩོམ་སྒྲིག་འབད་དེ་ སློབ་གྲྭ་ནང་ལས་ཕར་གཏང་མི་ རྩ་གཞུང་ལུ་གོཝ་ཨིན། (ད་ལྟོ་སློབ་གྲྭ་ནང་ལས་ཕར་ལག་ལེན་བཞིན་ཡོད་པའི་རྩ་གཞུང་)</div>
+        <p>Official curriculum set by authorities (e.g. MoE Bhutan). Planned content, objectives, and standards teachers must follow. <em>Example:</em> National Dzongkha syllabus with specific grammar rules.</p>
         <span class="tag">Top-down</span><span class="tag maroon">Official</span>
       </div>
       <div class="mini-card">
-        <h4>1.3 Taught Curriculum</h4>
+        <h4>༡.༣ ལག་ལེན་ཐོག་སློབ་སྟོན་འབད་བཞིན་པའི་རྩ་གཞུང་། Taught Curriculum</h4>
+        <div class="dzo-block" style="margin-bottom:0.5rem;">གོང་གི་ Prescribed Curriculum འདི་ སློབ་དཔོན་གྱིས་ ལག་ལེན་ཐོག་ ཉིན་བསྟར་བཞིན་ སློབ་ཁང་ནང་ སློབ་སྟོན་འབད་མི་རྩ་གཞུང་ལུ་སླབ་ཨིན། དེ་ཡང་ སློབ་དཔོན་གྱིས་སྟོན་མི་ ནང་དོན་དང་ སློབ་སྟོན་ཐབས་ལམ་ དེ་ལས་ ལྷབ་སྦྱང་གི་ཉམས་མྱོང་ཚུ་ཨིན།</div>
         <p>What teachers actually deliver daily in classrooms — content, methods, and learning experiences in practice.</p>
         <span class="tag">Classroom</span><span class="tag maroon">Teacher-led</span>
       </div>
       <div class="mini-card">
-        <h4>1.4 Learnt Curriculum</h4>
-        <p>All changes that occur in learners from school experience — what students actually absorb through interaction with teachers, peers, and the institution.</p>
+        <h4>༡.༤ སློབ་ཕྲུག་ལྷབ་མི་ལུ་བརྟེན་པའི་རྩ་གཞུང་། Learnt Curriculum</h4>
+        <div class="dzo-block" style="margin-bottom:0.5rem;">སློབ་དཔོན་གྱིས་སློབ་སྟོན་འབད་མི་འདི་ སློབ་ཕྲུག་ཚུ་གིས་ ག་ཅི་ར་ལྷབ་སྦྱང་འབད་ཚུགས་ཅི་ག་ འདི་ལུ་གོཝ་ཨིན། མདོར་ན་ ལྷབ་སྦྱང་གི་གྲུབ་འབྲས་ལུ་གོཝ་ཨིན།</div>
+        <p>All the changes that occur in learners due to their school experience — absorbed through interaction with teachers, peers, and the institution.</p>
         <span class="tag">Outcomes</span><span class="tag teal">Student-side</span>
       </div>
       <div class="mini-card">
-        <h4>1.5 Hidden Curriculum</h4>
-        <p>Lessons learned indirectly — not formally taught. Unwritten values and norms picked up in school. <em>Example:</em> punctuality, discipline, respect.</p>
+        <h4>༡.༥ གསང་བའི་རྩ་གཞུང་། Hidden Curriculum</h4>
+        <div class="dzo-block" style="margin-bottom:0.5rem;">སློབ་གྲྭ་ནང་ལུ་ ནང་དོན་སྦེ་མ་སྟོན་རུང་ སློབ་ཕྲུག་ཁོང་ར་གིས་ར་ ལྷབ་སྦྱང་འབད་མི་ཅིག་ཨིན།</div>
+        <p>The lessons students learn indirectly — not through formal teaching. Unwritten values and norms picked up in school. <em>Example:</em> punctuality, discipline, respect, teamwork.</p>
         <span class="tag">Implicit</span><span class="tag maroon">Informal</span>
       </div>
       <div class="mini-card">
-        <h4>1.6 Null Curriculum</h4>
+        <h4>༡.༦ མེད་པའི་རྩ་གཞུང་། Null Curriculum</h4>
+        <div class="dzo-block" style="margin-bottom:0.5rem;">སློབ་གྲྭ་ནང་སློབ་སྟོན་འབད་ནི་མེད་པའི་ ཤེས་ཡོན་དང་རིག་རྩལ་ལུ་གོཝ་ཨིན། དེ་སྦེ་མ་སྟོན་མི་འདི་ ལཱ་ཁག་སྦེ་ ཡང་ཅིན་ མ་ཚུདཔ་/ཆད་ཆད་ཡང་ འོང་སྲིདཔ་ཨིན། དཔེར་ན་ དངུལ་འཛིན་སྐྱོང་འབད་ནི་བཟུམ།</div>
         <p>Knowledge and skills <em>not taught</em> in school — intentionally or unintentionally. <em>Example:</em> Financial literacy, coding — if not taught, students miss it entirely.</p>
         <span class="tag">Absent</span><span class="tag maroon">Gap</span>
       </div>
@@ -545,7 +547,6 @@
       <div class="quiz-icon">✦</div>
       <h3>Chapter 1 Quiz — Test Your Knowledge</h3>
     </div>
-
     <div class="quiz-q" id="q0-0">
       <p class="q-text">1. What type of curriculum refers to the official document set by authorities like the Ministry of Education?</p>
       <div class="quiz-options">
@@ -554,36 +555,33 @@
         <button class="quiz-opt" onclick="checkAnswer(this,'q0-0','b')">c) Hidden Curriculum</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q0-0','b')">d) Null Curriculum</button>
       </div>
-      <div class="feedback" id="fb-q0-0-correct" class="feedback correct">✓ Correct! Prescribed Curriculum is the official, top-down curriculum set by policymakers.</div>
-      <div class="feedback" id="fb-q0-0-wrong" class="feedback wrong">✗ Not quite. Prescribed Curriculum = official curriculum from MoE/authorities.</div>
+      <div class="feedback" id="fb-q0-0-correct" class="feedback correct">✓ Correct! ལམ་སྟོན་བཀོད་རྒྱའི་རྩ་གཞུང་ — Prescribed Curriculum is the official, top-down curriculum set by policymakers.</div>
+      <div class="feedback" id="fb-q0-0-wrong" class="feedback wrong">✗ Prescribed Curriculum (ལམ་སྟོན་བཀོད་རྒྱའི་རྩ་གཞུང་) = official curriculum from MoE/authorities.</div>
     </div>
-
     <div class="quiz-q" id="q0-1">
-      <p class="q-text">2. A student learns to be punctual and disciplined by being part of school life — without any formal lesson on it. This is an example of:</p>
+      <p class="q-text">2. A student learns to be punctual and disciplined by being part of school life — without any formal lesson. This is an example of:</p>
       <div class="quiz-options">
         <button class="quiz-opt" onclick="checkAnswer(this,'q0-1','c')">a) Null Curriculum</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q0-1','c')">b) Learnt Curriculum</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q0-1','c')">c) Hidden Curriculum ✓</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q0-1','c')">d) Taught Curriculum</button>
       </div>
-      <div class="feedback" id="fb-q0-1-correct" class="feedback correct">✓ Correct! Hidden Curriculum = values learned indirectly through school culture.</div>
-      <div class="feedback" id="fb-q0-1-wrong" class="feedback wrong">✗ Hidden Curriculum is values/norms picked up informally — not through formal teaching.</div>
+      <div class="feedback" id="fb-q0-1-correct" class="feedback correct">✓ གསང་བའི་རྩ་གཞུང་! Hidden Curriculum = values learned indirectly through school culture.</div>
+      <div class="feedback" id="fb-q0-1-wrong" class="feedback wrong">✗ གསང་བའི་རྩ་གཞུང་ (Hidden Curriculum) is values/norms picked up informally — not through formal teaching.</div>
     </div>
-
     <div class="quiz-q" id="q0-2">
-      <p class="q-text">3. If financial literacy is never taught in schools, it becomes part of the _____ curriculum.</p>
+      <p class="q-text">3. If financial literacy (དངུལ་འཛིན་སྐྱོང་) is never taught in schools, it becomes part of the _____ curriculum.</p>
       <div class="quiz-options">
         <button class="quiz-opt" onclick="checkAnswer(this,'q0-2','d')">a) Hidden</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q0-2','d')">b) Taught</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q0-2','d')">c) Prescribed</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q0-2','d')">d) Null ✓</button>
       </div>
-      <div class="feedback" id="fb-q0-2-correct" class="feedback correct">✓ Correct! Null Curriculum = knowledge and skills that are excluded from school.</div>
-      <div class="feedback" id="fb-q0-2-wrong" class="feedback wrong">✗ Null Curriculum covers what is NOT taught — the absent/excluded content.</div>
+      <div class="feedback" id="fb-q0-2-correct" class="feedback correct">✓ མེད་པའི་རྩ་གཞུང་! Null Curriculum = knowledge and skills excluded from school.</div>
+      <div class="feedback" id="fb-q0-2-wrong" class="feedback wrong">✗ མེད་པའི་རྩ་གཞུང་ (Null Curriculum) covers what is NOT taught — the absent/excluded content.</div>
     </div>
-
     <div class="quiz-q" id="q0-3">
-      <p class="q-text">4. ལན། རྩ་གཞུང་གིས་ མི་སྡེ་ག་འདྲའི་བཟོ་དགོ? (What kind of society should curriculum create?)</p>
+      <p class="q-text">4. རྩ་གཞུང་གིས་ མི་སྡེ་ག་འདྲའི་བཟོ་དགོ? (What kind of society should curriculum create?)</p>
       <div class="quiz-options">
         <button class="quiz-opt" onclick="checkAnswer(this,'q0-3','b')">a) Competitive and wealthy</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q0-3','b')">b) Just and Harmonious ✓</button>
@@ -593,7 +591,6 @@
       <div class="feedback" id="fb-q0-3-correct" class="feedback correct">✓ དྲང་བདེན་ཅན་དང་དགའ་སྐྱིད་ཅན་གྱི་མི་སྡེ། — A Just and Harmonious Society!</div>
       <div class="feedback" id="fb-q0-3-wrong" class="feedback wrong">✗ Curriculum's goal = དྲང་བདེན་ཅན་དང་དགའ་སྐྱིད་ཅན་གྱི་མི་སྡེ། (Just and Harmonious Society)</div>
     </div>
-
     <div class="quiz-score" id="score0">
       <div class="score-num" id="scoreNum0">0/4</div>
       <div class="score-label">CHAPTER 1 SCORE</div>
@@ -612,64 +609,96 @@
 <div class="chapter" id="ch1">
   <div class="chapter-header">
     <span class="chapter-num">ལས་ཚན་གཉིས་པ།</span>
-    <h2>ཤེས་རིག་གི་ཡིད་ཆེས་བཞི། <span class="dzo">4 Educational Philosophies</span></h2>
+    <h2>ཤེས་རིག་གི་ཡིད་ཆེས་བཞི། <span class="dzo">4 Educational Philosophies · རྩ་གཞུང་གི་གཞི་ཤེས་རིག་གི་ཡིད་ཆེས།</span></h2>
   </div>
 
   <div class="teal-callout">
-    <strong>Why it matters:</strong> Without knowing the 4 educational philosophies, curriculum developers cannot identify national needs or create purposeful learning frameworks. These philosophies are the intellectual foundation of any curriculum.
+    <strong>ཤེས་རིག་གི་གྲུབ་མཐའ་བཞི།</strong> Without knowing the 4 educational philosophies, curriculum developers cannot identify national needs or create purposeful learning frameworks. These are the intellectual foundation of any curriculum.<br><br>
+    <em>དྲི་བ།</em> ཤེས་རིག་གི་ཡིད་ཆེས་བཞི་འདི་མ་ཤེས་པ་ཅིན་ རྩ་གཞུང་བརྩམ་ད་ལུ་ དཀའ་ངལ་ག་ཅི་ར་འཐོན་འོང་? — Without these philosophies, we cannot identify national needs or know what kind of curriculum to design.
   </div>
 
   <div class="note-block">
-    <h3>The Four Educational Philosophies</h3>
-    <div class="grid-2">
-      <div class="mini-card">
-        <h4>① Essentialism — ཉེར་མཁོ་གཙོར་བཏོན།</h4>
-        <p>Focus on <em>essential skills</em> needed in society: reading, writing, math, science, history, vocational skills. Teacher is the subject expert. Content decided by teachers, not student interest.</p>
-        <span class="tag">Teacher-centered</span><span class="tag maroon">Core subjects</span>
-      </div>
-      <div class="mini-card">
-        <h4>② Perennialism — རྒྱུན་གནས་གཙོར་བཏོན།</h4>
-        <p>Focus on <em>timeless, universal truths</em> — knowledge that is true across all time and place (e.g. impermanence, rivers flow from mountains). Emphasis on classic works and religious/moral core.</p>
-        <span class="tag">Timeless truth</span><span class="tag maroon">Universal</span>
-      </div>
-      <div class="mini-card">
-        <h4>③ Progressivism — ཡར་འཕེལ་གཙོར་བཏོན།</h4>
-        <p>Focus on <em>student interest and ability</em>. Student-centered learning. Teacher as facilitator (not authority). Standards based on individual growth, not comparison. Child-friendly school concept.</p>
-        <span class="tag teal">Student-centered</span><span class="tag teal">Rousseau</span>
-      </div>
-      <div class="mini-card">
-        <h4>④ Social Reconstructionism — མི་སྡེ་ལེགས་བཅོས།</h4>
-        <p>Education must <em>transform society</em>. School as agent of social change. Address inequality, injustice, and social problems. Students as future changemakers.</p>
-        <span class="tag maroon">Social change</span><span class="tag">Reform</span>
-      </div>
+    <h3><span class="num-label">༢.༡.༡</span> ཉེར་མཁོ་གཙོར་བཏོན། Essentialism</h3>
+    <div class="dzo-block">
+      ཉེར་མཁོ་གཙོ་བོ་བཏོན་ཟེར་མི་འདི་ཨ་ལུ་ཚུ་གི་རྒྱུད་ལུ་གནས་སྐབས་དགོས་མཁོ་ངེས་བདེན་ཡོད་མི་གནད་དོན་རྐྱངམ་ཅིག་སློབ་སྟོན་འབད་མི་ལུ་གོཝ་ཨིན། ཉེར་མཁོ = ཁག་ཆེཝ། གལ་ཆེཝ། དགོས་མཁོ་ཡོདཔ།<br><br>
+      རྩ་གཞུང་གི་ནང་ལུ་ཉེར་མཁོ་ལུ་གཙོ་བོ་བཏོནམ་ད་ འབྲི་ནི་དང་ལྷག་ནི། ཨང་རྩིས་དང་ཚན་རིག། འབྱུང་རབས་དང་རྩོམ་རིག་ཚུ་གི་ནང་དོན་ཚུ་ཚུད་དགོཝ་ཁག་ཆེ་ཟེར་ ཨོ་ལི་ཝ་(༡༩༨༨) གིས་བཤད་དེ་འདུག། དེ་མ་ཚད་ དཔེར་ན་ཆུ་དུང་བཅོས་ནི་དང་ གློག་མེ་བཅོས་ནི་ལ་སོགས་པའི་རིག་རྩལ་ཚུ་ཡང་བྱིན་དགོཔ་ཨིན།
     </div>
+    <p>Focus on <em>essential skills</em> needed in society: reading, writing, math, science, history, vocational skills. Teacher is the subject expert. Content decided by teachers, not student interest. (Olivia, 1988)</p>
+    <p><strong>ཁྱད་རྣམ།</strong></p>
+    <ul class="content-list">
+      <li>མི་སྡེ་ལུ་ཞབས་ཏོག་གི་དོན་ལས་དགོས་མཁོ་ཡོདཔ་འབད་བརྩིས་ཨིན། (Needed for serving society)</li>
+      <li>ནང་དོན་ཚུ་ཨ་ལུ་གི་སྤྲོ་བ་ལུ་གཞི་བཞག་སྟེ་བཟོ་ནི་མེད། (Not based on student interest)</li>
+      <li>ནང་དོན་ཚུ་སློབ་དཔོན་གྱིས་ཐག་བཅད་དེ་བཟི་ནི། (Teacher decides content)</li>
+      <li>སློབ་དཔོན་འདི་ཆོས་ཚན་གྱི་མཁས་མཆོག་དང་དཔེ་སྟོན་པ། (Teacher as subject expert &amp; role model)</li>
+    </ul>
+    <span class="tag">Teacher-centered</span><span class="tag maroon">Core subjects</span>
+  </div>
+
+  <div class="note-block">
+    <h3><span class="num-label">༢.༡.༢</span> རྒྱུན་གནས་གཙོར་བཏོན། Perennialism</h3>
+    <div class="dzo-block">
+      རྒྱུན་གནས་གཙོ་བོ་བཏོན་ཟེར་མི་འདི་ ཨ་ལུ་ཚུ་གི་རྒྱུད་ལུ་ དུས་གསུམ་ཆ་ར་ (གཏན་འཇགས། The things of everlasting) གི་ནང་ལུ་ཁག་ཆེ་བའི་གནད་དོན་ཚུ་སློབ་སྟོན་འབད་མི་ལུ་གོཝ་ཨིན།<br><br>
+      ནུབ་ཕྱོགས་རྒྱལ་ཁབ་ཀྱི་དཔེ་ཆ "The great book" ཟེར་མི་འདི་རྒྱུན་གནས་གཙོ་བཏོན་གྲུབ་མཐའ་གི་དཔེ་ཨིན། (ཨོ་ལི་ཝ།)
+    </div>
+    <p>Focus on <em>timeless, universal truths</em> — knowledge that is true across all time and place.</p>
+    <p><strong>ཁྱད་རྣམ།</strong></p>
+    <ul class="content-list">
+      <li>ཤེས་ཡོན་གྱི་གནད་དོན་འགྱུར་བ་མེདཔ་སྦེ་གནས་མི་ཚུ་འོངམ། <em>དཔེར་ན་: ཆུ་མོ་གངས་ལས་འབབ་ནི།</em></li>
+      <li>དུས་ཚོད་དང་ས་གནས་ག་ཅི་གི་ཐད་ལས་འབད་རུང་བདེན་པ་ཡོད་མི། <em>དཔེར་ན་: མི་རྟག་པ།</em></li>
+      <li>ནང་ཆོས་ཀྱི་སྙིང་པོ་ལུ་གཙོ་བཟུང་སྟེ་སློབ་སྟོན། <em>དཔེར་ན་: ཁ་ཐུན་བཏང་ནི།</em></li>
+      <li>གནས་སྐབས་ཕན་པ་ཡོད་མི་གནད་དོན་དང་ཤེས་ཡོན་ལུ་གཙོ་བོ་བཟུང་སྟེ་མི་འོང་། <em>(NOT vocational trainings)</em></li>
+    </ul>
+    <span class="tag">Timeless truth</span><span class="tag maroon">Universal</span>
+  </div>
+
+  <div class="note-block">
+    <h3><span class="num-label">༢.༡.༣</span> ཡར་འཕེལ་གཙོར་བཏོན། Progressivism</h3>
+    <div class="dzo-block">
+      ཡར་འཕེལ་གཙོ་བོ་བཏོན་ཟེར་མི་འདི་ ཨ་ལུ་ཚུ་གི་ལྕོགས་གྲུབ་དང་སྤྲོ་བ་ལུ་གཞི་བཞག་སྟེ་སློབ་སྟོན་གཙོ་བོར་བཟུང་མི་ལུ་སླབ་ཨིན།<br><br>
+      རུ་ཛུ་གིས་: ལྷབ་སྦྱང་གི་རང་དབང་འདི་ཨ་ལུ་ཁོ་ར་ལུ་བྱིན་ཏེ་གནས་སྟངས་སྤྲོ་ཏོག་བཟོ་དགོ་ཟེར་སླབ་ཨིན།<br><br>
+      ད་རེས་ནངས་པར་ ཨ་ལུ་དང་མཐུན་པའི་སློབ་གྲྭ་ (Child-Friendly Schools) ཟེར་ དར་ཁྱབ་འགྱོ་མི་འདི་ ཡར་འཕེལ་གཙོ་བཏོན་གྲུབ་མཐའ་གི་དགོངས་པ་ལས་འགལ་བ་མེདཔ་ཨིན།
+    </div>
+    <p>Focus on <em>student interest and ability</em>. Student-centered learning. Teacher as facilitator (not authority).</p>
+    <p><strong>ཁྱད་རྣམ།</strong></p>
+    <ul class="content-list">
+      <li>སློབ་ཕྲུག་གཙོ་བཏོན་གྱི་ལྷབ་སྦྱང་། (Student centered learning)</li>
+      <li>ལྷབ་ནི་ཆོ་ཚན་ལས་ཨ་ལུ་ཁག་ཆེཝ་འབད་བརྩི། (Child more important than lesson)</li>
+      <li>སློབ་དཔོན་གྱིས་ཤུགས་བཙོང་དང་དབང་ཚད་ལག་ལེན་འཐབ་ནི་མི་འོང་།</li>
+      <li>སློབ་དཔོན་འདི་ལམ་སྟོན་དང་གྲོགས་རམ་ (facilitator) འབད་མི་སྦེ་ཆ་བཞག་འོང་།</li>
+      <li>གནས་ཚད་འདི་ཨ་ལུ་རང་སོའི་ལྕོགས་གྲུབ་ལུ་བལྟ་ནི། (Not compared with others)</li>
+    </ul>
+    <span class="tag teal">Student-centered</span><span class="tag teal">Rousseau</span>
+  </div>
+
+  <div class="note-block">
+    <h3><span class="num-label">༢.༡.༤</span> མི་སྡེའི་ལེགས་བཅོས་གཙོར་བཏོན། Social Reconstructionism</h3>
+    <p>Education must <em>transform society</em>. School as agent of social change. Address inequality, injustice, and social problems. Students as future changemakers.</p>
+    <span class="tag maroon">Social change</span><span class="tag">Reform</span>
   </div>
 
   <div class="note-block">
     <h3>Essentialism vs Progressivism — Key Differences</h3>
     <table class="compare-table">
-      <tr><th>Aspect</th><th>Essentialism</th><th>Progressivism</th></tr>
-      <tr><td>Focus</td><td>Essential skills for society</td><td>Student interest & ability</td></tr>
+      <tr><th>Aspect</th><th>Essentialism (ཉེར་མཁོ།)</th><th>Progressivism (ཡར་འཕེལ།)</th></tr>
+      <tr><td>Focus</td><td>Essential skills for society</td><td>Student interest &amp; ability</td></tr>
       <tr><td>Content</td><td>Decided by teacher/authority</td><td>Based on student needs</td></tr>
-      <tr><td>Teacher Role</td><td>Subject expert & model</td><td>Facilitator & guide</td></tr>
+      <tr><td>Teacher Role</td><td>ཆོས་ཚན་གྱི་མཁས་མཆོག། Subject expert &amp; model</td><td>ལམ་སྟོན་དང་གྲོགས་རམ། Facilitator &amp; guide</td></tr>
       <tr><td>Assessment</td><td>Standardized comparison</td><td>Individual growth</td></tr>
       <tr><td>Theorist</td><td>Olivia (1988)</td><td>Rousseau</td></tr>
     </table>
   </div>
 
   <div class="note-block">
-    <h3>Perennialism — Key Characteristics</h3>
-    <ul class="content-list">
-      <li>Teaches knowledge that remains true regardless of time and place</li>
-      <li>Example of perennial truth: rivers flow from mountains (ཆུ་མོ་གངས་ལས་འབབ།)</li>
-      <li>Example in ethics: impermanence (མི་རྟག་པ) — always relevant</li>
-      <li>Religious/moral core is permanent: cooperation and respect (ཁ་ཐུན་བཏང་ནི)</li>
-      <li>Does NOT focus on vocational/temporary skills</li>
-    </ul>
+    <h3>༢.༢ Why Schools and Teachers Need Educational Philosophies</h3>
+    <div class="dzo-block">
+      ཤེས་བྱའི་གནས་དེ་ཚུ་ ཤེས་རིག་གི་གཞི་འགྱམ་/གཞི་རྩ་བཞི་ལས་ གཅིག་མེན་གཅིག་ནང་ལུ་ཚུདཔ་ལས་ དེ་གིས་ ལམ་སྟོན་འབདཝ་ཨིན། དེ་ལས་རྒྱལ་ཁབ་ཀྱི་ དགོས་མཁོ་ངོས་འཛིན་འབད་དེ་ དེ་འགྲུབ་ཐབས་ཀྱི་རྩ་གཞུང་བརྩམ་ཚུགས།<br><br>
+      ང་བཅས་འབྲུག་རྒྱལ་ཁབ་ནང་འབད་བ་ཅིན་ སེམས་ཅན་བསད་ནི་ ཡང་ན་ གཏོར་རྫས་/བམ་རྫས་(Bomb)བཟོ་ཐངས་ཀྱི་སྐོར་ལས་ལྷབ་དགོཔ་མེདཔ་ཨིན། རང་གི་མི་ཚེ་ནང་ལུ་ དཀའ་ངལ་སེལ་ཐབས་ལུ་ གཞན་ དཀའ་ངལ་སེལ་ནིའི་ཤེས་ཡོན་ དཔེར་ན་ རྩིས། བཟོ་རིག་དང་གསོ་རིག་ལ་སོགས་པ་ཚུ་ ལྷབ་དགོཔ་ཨིན།
+    </div>
+    <p>Without knowing these philosophies, curriculum developers cannot identify national needs. The 4 philosophies guide: educational goals, teaching methods, classroom management, and assessment systems.</p>
   </div>
 
   <div class="callout">
-    <strong>Exam Tip:</strong> For Dzongkha curriculum at senior level — Perennialism is linked to preserving cultural and Buddhist values. Progressivism is linked to child-friendly schools (ད་རེས་ནངས་པར་ཨ་ལུ་དང་མཐུན་པའི་སློབ་གྲྭ།).
+    <strong>Exam Tip:</strong> For Dzongkha curriculum at senior level — Perennialism (རྒྱུན་གནས།) is linked to preserving cultural &amp; Buddhist values. Progressivism (ཡར་འཕེལ།) is linked to child-friendly schools (ཨ་ལུ་དང་མཐུན་པའི་སློབ་གྲྭ།).
   </div>
 
   <!-- QUIZ 2 -->
@@ -678,55 +707,50 @@
       <div class="quiz-icon">✦</div>
       <h3>Chapter 2 Quiz — Educational Philosophies</h3>
     </div>
-
     <div class="quiz-q" id="q1-0">
-      <p class="q-text">1. རང་ལུ་དགོ་པའི་ཤེས་ཡོན་དང་རིག་རྩལ་རྐྱངམ་གཅིག་ལུ་གཙོ་བོར་བཏོན་མི་ཤེས་རིག་གི་གྲུབ་མཐའ་ག་འདི? (Which philosophy focuses only on skills needed for self/society?)</p>
+      <p class="q-text">1. རང་ལུ་དགོ་པའི་ཤེས་ཡོན་དང་རིག་རྩལ་རྐྱངམ་གཅིག་ལུ་གཙོ་བོར་བཏོན་མི་ཤེས་རིག་གི་གྲུབ་མཐའ་ག་འདི? (Which philosophy focuses only on skills needed for society?)</p>
       <div class="quiz-options">
-        <button class="quiz-opt" onclick="checkAnswer(this,'q1-0','d')">a) Progressivism</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q1-0','d')">b) Social Reconstructionism</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q1-0','d')">c) Perennialism</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q1-0','d')">d) Essentialism ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q1-0','d')">a) Progressivism — ཡར་འཕེལ།</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q1-0','d')">b) Social Reconstructionism — མི་སྡེ་ལེགས་བཅོས།</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q1-0','d')">c) Perennialism — རྒྱུན་གནས།</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q1-0','d')">d) Essentialism — ཉེར་མཁོ་གཙོར་བཏོན། ✓</button>
       </div>
-      <div class="feedback" id="fb-q1-0-correct" class="feedback correct">✓ ཉེར་མཁོ་གཙོར་བཏོན། Essentialism = focus on essential, needed skills.</div>
+      <div class="feedback" id="fb-q1-0-correct" class="feedback correct">✓ ཉེར་མཁོ་གཙོར་བཏོན། Essentialism = focus on essential, needed skills for society.</div>
       <div class="feedback" id="fb-q1-0-wrong" class="feedback wrong">✗ ཉེར་མཁོ་གཙོར་བཏོན། (Essentialism) focuses on essential skills for society.</div>
     </div>
-
     <div class="quiz-q" id="q1-1">
-      <p class="q-text">2. In Progressivism, what is the teacher's role?</p>
+      <p class="q-text">2. In Progressivism, what is the teacher's role? (ཡར་འཕེལ་གྲུབ་མཐའ་ནང་ སློབ་དཔོན་གྱི་ལཱ་ཅི་ཨིན་ན?)</p>
       <div class="quiz-options">
-        <button class="quiz-opt" onclick="checkAnswer(this,'q1-1','b')">a) Subject expert and authority</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q1-1','b')">b) Facilitator and guide ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q1-1','b')">a) ཆོས་ཚན་གྱི་མཁས་མཆོག། Subject expert and authority</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q1-1','b')">b) ལམ་སྟོན་དང་གྲོགས་རམ། Facilitator and guide ✓</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q1-1','b')">c) Evaluator only</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q1-1','b')">d) Content designer</button>
       </div>
-      <div class="feedback" id="fb-q1-1-correct" class="feedback correct">✓ In Progressivism: སློབ་དཔོན་འདི་ལམ་སྟོན་དང་གྲོགས་རམ། — teacher as facilitator!</div>
+      <div class="feedback" id="fb-q1-1-correct" class="feedback correct">✓ ཡར་འཕེལ་ནང་: སློབ་དཔོན་འདི་ལམ་སྟོན་དང་གྲོགས་རམ། — teacher as facilitator!</div>
       <div class="feedback" id="fb-q1-1-wrong" class="feedback wrong">✗ Progressivism: teacher = facilitator (ལམ་སྟོན་དང་གྲོགས་རམ), not authority.</div>
     </div>
-
     <div class="quiz-q" id="q1-2">
-      <p class="q-text">3. Which philosophy focuses on timeless universal truths (like impermanence)?</p>
+      <p class="q-text">3. མི་རྟག་པ་བཟུམ་གྱི་ དུས་གསུམ་གྱི་བདེན་པ་ལུ་གཙོ་བཟུང་མི་གྲུབ་མཐའ་ག་འདི? (Which philosophy focuses on timeless truths like impermanence?)</p>
       <div class="quiz-options">
-        <button class="quiz-opt" onclick="checkAnswer(this,'q1-2','a')">a) Perennialism ✓</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q1-2','a')">b) Essentialism</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q1-2','a')">c) Progressivism</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q1-2','a')">a) Perennialism — རྒྱུན་གནས་གཙོར་བཏོན། ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q1-2','a')">b) Essentialism — ཉེར་མཁོ།</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q1-2','a')">c) Progressivism — ཡར་འཕེལ།</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q1-2','a')">d) Social Reconstructionism</button>
       </div>
       <div class="feedback" id="fb-q1-2-correct" class="feedback correct">✓ རྒྱུན་གནས་གཙོར་བཏོན། Perennialism — eternal, universal truths!</div>
       <div class="feedback" id="fb-q1-2-wrong" class="feedback wrong">✗ Perennialism (རྒྱུན་གནས།) focuses on timeless knowledge true across all eras.</div>
     </div>
-
     <div class="quiz-q" id="q1-3">
-      <p class="q-text">4. Which philosophy says education must transform society and address social problems like inequality?</p>
+      <p class="q-text">4. Which philosophy says education must transform society and address problems like inequality? (མི་སྡེ་བདེ་ལེགས་བཟོ་ནི་ལུ་ ཤེས་ཡོན་གྱིས་ལམ་སྟོན་འབད་དགོ་ཟེར་མི་གྲུབ་མཐའ་ག་འདི?)</p>
       <div class="quiz-options">
         <button class="quiz-opt" onclick="checkAnswer(this,'q1-3','c')">a) Essentialism</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q1-3','c')">b) Perennialism</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q1-3','c')">c) Social Reconstructionism ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q1-3','c')">c) Social Reconstructionism — མི་སྡེ་ལེགས་བཅོས། ✓</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q1-3','c')">d) Progressivism</button>
       </div>
       <div class="feedback" id="fb-q1-3-correct" class="feedback correct">✓ མི་སྡེ་ལེགས་བཅོས་གཙོར་བཏོན། — education as a tool for social reform!</div>
       <div class="feedback" id="fb-q1-3-wrong" class="feedback wrong">✗ Social Reconstructionism (མི་སྡེ་ལེགས་བཅོས།) = education to transform and fix society.</div>
     </div>
-
     <div class="quiz-score" id="score1">
       <div class="score-num" id="scoreNum1">0/4</div>
       <div class="score-label">CHAPTER 2 SCORE</div>
@@ -749,79 +773,88 @@
   </div>
 
   <div class="teal-callout">
-    <strong>Core Idea:</strong> Society must be considered in curriculum design. Curriculum is a <em>mirror of society's priorities</em> — it asks: "What kind of citizens do we want for our future?"
+    <strong>Core Question:</strong> རྩ་གཞུང་རྩོམ་པའི་སྐབས་ མི་སྡེ་འདི་སེམས་ཁར་བཞག་དགོ་པའི་ཁུངས་ཡང་? — Why must society be considered when designing curriculum?<br><br>
+    <em>Core Answer:</em> Curriculum is a <strong>mirror of society's priorities</strong> — it asks: "What kind of citizens do we want for our future?"
   </div>
 
   <div class="note-block">
     <h3>Why Society Must Be Considered in Curriculum</h3>
+    <div class="dzo-block">
+      ༡- མི་སྡེའི་དགོས་མཁོ་དང་འཁྲིལ་བའི་ ཤེས་ཡོན་སྤྲོད་ནི།<br>
+      ༢- མི་སྡེ་གཅིག་མཐུན་བཟོ་ནི།
+    </div>
     <ul class="content-list">
-      <li><strong>Meet society's needs</strong> — prepare citizens for real community roles</li>
-      <li><strong>Preserve culture and identity</strong> — ངོ་རྟགས་དང་ལམ་སྲོལ་ཉམས་སྲུང། (Bhutan: language, traditions)</li>
-      <li><strong>Create a happy society</strong> — དགའ་སྐྱིད་ལྡན་པའི་མི་སྡེ།</li>
-      <li><strong>Respond to social change</strong> — adapt to new trends (digital age, climate crisis)</li>
-      <li><strong>Prepare responsible citizens</strong> — workers, leaders, and representatives</li>
-      <li><strong>Solve social problems</strong> — present AND future challenges (drug abuse, junk food, etc.)</li>
-      <li><strong>Society supports education</strong> — government, parents, community fund and run schools</li>
+      <li><strong>མི་སྡེའི་དགོས་མཁོ་གྲུབ་ཚུགས་ནི།</strong> — Meet society's needs; prepare citizens for real community roles (འབྲུག་རྒྱལ་ཁབ་འདི་ མི་ཉམས་རྒྱུན་སྐྱོང་)</li>
+      <li><strong>ངོ་རྟགས་དང་ལམ་སྲོལ་ཉམས་སྲུང་འབད་ནི།</strong> — Preserve culture and identity (Bhutan: language, traditions)</li>
+      <li><strong>དགའ་སྐྱིད་ལྡན་པའི་མི་སྡེ་བཟོ་ཐབས།</strong> — Create a happy society</li>
+      <li><strong>མི་སྡེའི་འགྱུར་བ་དང་འཁྲིལ་བའི་གདོང་ལེན་འབད་ཚུགས།</strong> — Respond to social change (digital age, climate crisis)</li>
+      <li><strong>མི་སྡེའི་འགན་ཁུར་འབག་ཚུགསཔ་བཟོ་ནི།</strong> — Prepare workers, leaders, and representatives (ལཱ་འབད་མི། འགོ་ཁྲིདཔ། འཐུས་མི།)</li>
+      <li><strong>མི་སྡེའི་དཀའ་ངལ་བསལ་ནི།</strong> — Solve present AND future challenges (drug abuse, junk food, digital risks)</li>
+      <li><strong>Society Supports Education</strong> — Government, parents, and community help run and fund schools</li>
     </ul>
   </div>
 
   <div class="note-block">
-    <h3>The Continuous Cycle — Society ↔ Curriculum ↔ School</h3>
+    <h3>༣.༣ མི་སྡེའི་འཁོར་རིམ་གསུམ། The Continuous Cycle</h3>
+    <div class="dzo-block">Society → Curriculum → School → Educated Citizens → Society Changes → Curriculum Revised</div>
     <ol class="steps">
-      <li><span class="step-num">1</span>Society identifies its needs and values</li>
-      <li><span class="step-num">2</span>Curriculum developers design learning to address those needs</li>
-      <li><span class="step-num">3</span>Schools implement the curriculum</li>
-      <li><span class="step-num">4</span>Students grow and contribute back to society</li>
-      <li><span class="step-num">5</span>Society changes → curriculum must be revised</li>
+      <li><span class="step-num">1</span>མི་སྡེའི་དགོས་མཁོ་དང་རིན་ཐང་ངོས་འཛིན། Society identifies its needs and values</li>
+      <li><span class="step-num">2</span>རྩ་གཞུང་རྩོམ་པ་ཚུ་གིས་ ལྷབ་སྦྱང་གྲ་སྒྲིག། Curriculum developers design learning to address those needs</li>
+      <li><span class="step-num">3</span>སློབ་གྲྭ་ཚུ་གིས་རྩ་གཞུང་ལག་ལེན་འཐབ། Schools implement the curriculum</li>
+      <li><span class="step-num">4</span>སློབ་ཕྲུག་ཚུ་ མི་སྡེར་རྒྱབ་སྐྱོར་ཞུགས། Students grow and contribute back to society</li>
+      <li><span class="step-num">5</span>མི་སྡེ་འགྱུར་བ་སྟོན་ → རྩ་གཞུང་བསྒྱུར་བཅོས་དགོ། Society changes → curriculum must be revised</li>
     </ol>
+    <p style="font-size:13px;color:var(--ink-soft);margin-top:0.5rem;">Education is not isolated — it works in a continuous cycle: <em>Society shapes curriculum → Schools implement it → Educated Citizens transform society → Society changes → Curriculum changes again.</em></p>
   </div>
 
   <div class="note-block">
-    <h3>How Curriculum Should Respond to Society</h3>
+    <h3>༣.༡ How Curriculum Should Respond to Society</h3>
     <div class="grid-2">
       <div class="mini-card">
-        <h4>Prepares for life</h4>
+        <h4>༡ མི་ཚེའི་གནས་སྟངས་གྲ་སྒྲིག། Prepares for life</h4>
         <p>Develops skills for real-world challenges — not just exam knowledge.</p>
       </div>
       <div class="mini-card">
-        <h4>Preserves identity</h4>
-        <p>Protects Bhutanese culture, language, and values across generations.</p>
+        <h4>༢ ལམ་སྲོལ་དང་ངོ་རྟགས། Preserves identity</h4>
+        <p>ལམ་སྲོལ་དང་ངོ་རྟགས་མི་ཉམས་རྒྱུན་སྐྱོང་འབདཝ་ཨིན། Protects Bhutanese culture, language, and values.</p>
       </div>
       <div class="mini-card">
-        <h4>Adapts to change</h4>
-        <p>Digital literacy, environmental sustainability, global citizenship.</p>
+        <h4>༣ མི་སྡེའི་འགྱུར་བ་ལུ་མཐུན་སྒྲིག། Adapts to change</h4>
+        <p>Digital Literacy · Environmental sustainability · Global citizenship</p>
       </div>
       <div class="mini-card">
-        <h4>Solves problems</h4>
-        <p>Addresses inequality, environmental degradation, social disharmony.</p>
+        <h4>༤ དཀའ་ངལ་སེལ་ནི། Solves problems</h4>
+        <p>Addresses Inequality · Environmental Degradation · Social Disharmony</p>
       </div>
+    </div>
+    <div class="dzo-block" style="margin-top:0.5rem;">
+      མི་སྡེ་འདི་ སེམས་ཁར་མ་བཞག་པ་ཅིན་ — Curriculum becomes irrelevant to real life, and students don't develop the skills and values needed in their community.
     </div>
   </div>
 
   <div class="callout">
-    <strong>Pedagogical Approaches for Society-Based Curriculum:</strong> Experiential Learning · Project Method · Problem-Based Learning · Inquiry-Based Learning · Collaborative Learning · Service Learning · Culturally Responsive Teaching · Integrated/Interdisciplinary Approach
+    <strong>Key Pedagogical Approaches:</strong> ༡ Experiential Learning (Learning by doing — སློབ་ཕྲུག་ ས་ཡ་ལུ་འགྱོ་ཞིནམ་) · ༢ Project Method · ༣ Problem-Based Learning · ༤ Inquiry-Based Learning · ༥ Collaborative Learning · ༦ Service Learning · ༧ Culturally Responsive Teaching (Bhutanese stories, not only foreign texts) · ༨ Integrated/Interdisciplinary Approach (Water: Dzongkha + Science + Social Studies)
   </div>
 
+  <!-- QUIZ 3 -->
   <div class="quiz-section" id="quiz2">
     <div class="quiz-header">
       <div class="quiz-icon">✦</div>
-      <h3>Chapter 3 Quiz — Society & Curriculum</h3>
+      <h3>Chapter 3 Quiz — Society &amp; Curriculum</h3>
     </div>
-
     <div class="quiz-q" id="q2-0">
-      <p class="q-text">1. In Bhutan, teaching Dzongkha language and traditional values in schools is an example of which function of curriculum?</p>
+      <p class="q-text">1. In Bhutan, teaching Dzongkha and traditional values in schools is an example of which function of curriculum? (འབྲུག་ལུ་རྫོང་ཁ་སློབ་སྟོན་འབད་མི་འདི་རྩ་གཞུང་གི་ལཱ་ག་འདི་གི་དཔེར་ཨིན་སྨོ?)</p>
       <div class="quiz-options">
         <button class="quiz-opt" onclick="checkAnswer(this,'q2-0','b')">a) Solving social problems</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q2-0','b')">b) Preserving culture and identity ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q2-0','b')">b) ངོ་རྟགས་དང་ལམ་སྲོལ་ཉམས་སྲུང། Preserving culture and identity ✓</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q2-0','b')">c) Adapting to global trends</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q2-0','b')">d) Preparing for exams</button>
       </div>
       <div class="feedback" id="fb-q2-0-correct" class="feedback correct">✓ ངོ་རྟགས་དང་ལམ་སྲོལ་མི་ཉམས་རྒྱུན་སྐྱོང། — preserving Bhutan's unique identity!</div>
       <div class="feedback" id="fb-q2-0-wrong" class="feedback wrong">✗ Teaching Dzongkha = ངོ་རྟགས་དང་ལམ་སྲོལ་ཉམས་སྲུང། (Preserving culture and identity).</div>
     </div>
-
     <div class="quiz-q" id="q2-1">
-      <p class="q-text">2. If curriculum DOESN'T consider society, what is the most likely consequence?</p>
+      <p class="q-text">2. མི་སྡེ་འདི་སེམས་ཁར་མ་བཞག་པ་ཅིན་ (If curriculum doesn't consider society), what is the most likely consequence?</p>
       <div class="quiz-options">
         <button class="quiz-opt" onclick="checkAnswer(this,'q2-1','c')">a) Students become more creative</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q2-1','c')">b) Teachers have more freedom</button>
@@ -831,9 +864,8 @@
       <div class="feedback" id="fb-q2-1-correct" class="feedback correct">✓ Correct! Without society as foundation, curriculum loses real-world relevance.</div>
       <div class="feedback" id="fb-q2-1-wrong" class="feedback wrong">✗ If society is ignored → curriculum becomes irrelevant; students lack needed skills.</div>
     </div>
-
     <div class="quiz-q" id="q2-2">
-      <p class="q-text">3. Students visiting local farms instead of only reading about agriculture is an example of which teaching approach?</p>
+      <p class="q-text">3. Students visiting local farms instead of only reading about agriculture is an example of: (སློབ་ཕྲུག་ཚུ་ ས་ཞིང་ལུ་གཟིགས་སྐོར་འགྱོ་མི་འདི་ སློབ་སྟོན་ཐབས་ལམ་ག་འདི་གི་དཔེར་ཨིན་སྨོ?)</p>
       <div class="quiz-options">
         <button class="quiz-opt" onclick="checkAnswer(this,'q2-2','a')">a) Experiential Learning ✓</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q2-2','a')">b) Perennialism</button>
@@ -843,19 +875,17 @@
       <div class="feedback" id="fb-q2-2-correct" class="feedback correct">✓ Experiential Learning — "Society is lived, not memorized!"</div>
       <div class="feedback" id="fb-q2-2-wrong" class="feedback wrong">✗ This is Experiential Learning — learning by doing in real social contexts.</div>
     </div>
-
     <div class="quiz-q" id="q2-3">
-      <p class="q-text">4. What is the correct order in the Society-Curriculum cycle?</p>
+      <p class="q-text">4. མི་སྡེའི་འཁོར་རིམ་གསུམ་གྱི་གོ་རིམ་ག་འདི་འདྲ་སྨོ? (What is the correct order in the Society-Curriculum cycle?)</p>
       <div class="quiz-options">
         <button class="quiz-opt" onclick="checkAnswer(this,'q2-3','b')">a) School → Curriculum → Society → Change</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q2-3','b')">b) Society needs → Curriculum design → Schools implement → Students contribute → Society changes ✓</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q2-3','b')">c) Students learn → Society changes → Curriculum is written</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q2-3','b')">d) Teachers decide → Students learn → Society accepts</button>
       </div>
-      <div class="feedback" id="fb-q2-3-correct" class="feedback correct">✓ The continuous cycle: Society → Curriculum → School → Students → Society (repeat)!</div>
+      <div class="feedback" id="fb-q2-3-correct" class="feedback correct">✓ མི་སྡེའི་འཁོར་རིམ།: Society → Curriculum → School → Students → Society (repeat)!</div>
       <div class="feedback" id="fb-q2-3-wrong" class="feedback wrong">✗ The cycle: Society's needs → Curriculum → Schools → Students contribute → Society evolves.</div>
     </div>
-
     <div class="quiz-score" id="score2">
       <div class="score-num" id="scoreNum2">0/4</div>
       <div class="score-label">CHAPTER 3 SCORE</div>
@@ -874,97 +904,95 @@
 <div class="chapter" id="ch3">
   <div class="chapter-header">
     <span class="chapter-num">ལས་ཚན་བཞི་པ།</span>
-    <h2>སེམས་ཁམས་རིག་པ། <span class="dzo">Psychological Foundations</span></h2>
+    <h2>སེམས་ཁམས་རིག་པ། <span class="dzo">Psychological Foundations · རྩ་གཞུང་གི་གཞི་སེམས་ཁམས་རིག་པ།</span></h2>
   </div>
 
   <div class="teal-callout">
-    <strong>Key Idea:</strong> Learning = changes in internal cognition and external behaviour. All three dimensions of a child must be developed equally: cognitive, affective, psychomotor.
+    <strong>Key Idea:</strong> སྤྱིར་གཏང་གི་ ལྷབ་ནི་ཟེར་མི་འདི་ ནང་གི་མནོ་རིག་ཚོར་བ་དང་ ཕྱིའི་བྱ་སྤྱོད་གང་ཡུང་ཅིག་ལུ་ བསྒྱུར་བཅོས་འགྱོ་མི་འདི་ལུ་གོ། Learning = changes in internal cognition AND external behaviour. All three dimensions must be developed equally: cognitive (མནོ་རིག་), affective (ཚོར་བ་), psychomotor (སྦྱར་ཚུལ་).
   </div>
 
   <div class="note-block">
-    <h3><span class="num-label">4.1</span> Behaviourism — ཕྱིའི་བྱ་སྤྱོད་གཞིར་བཞག</h3>
+    <h3><span class="num-label">༤.༡</span> ཕྱིའི་བྱ་སྤྱོད་ལུ་གཞིར་བཞག་གི་གྲུབ་མཐའ། Behaviourism</h3>
     <div class="grid-2">
       <div class="mini-card">
-        <h4>Classical Conditioning — Pavlov</h4>
-        <p>Learning through stimulus-response associations. Repeated exposure creates conditioned responses. <em>Example:</em> Bell rings → dog salivates.</p>
+        <h4>ཀ་ལ་སི་ཀལ་ཀཱན་དྲི་ཤཱ་ནིང་། Classical Conditioning — Ivan Pavlov</h4>
+        <p>Learning through stimulus-response associations. Repeated exposure creates conditioned responses. <em>Example: Bell rings → dog salivates.</em></p>
         <span class="tag">Pavlov</span><span class="tag maroon">Stimulus-Response</span>
       </div>
       <div class="mini-card">
-        <h4>Operant Conditioning — Skinner</h4>
-        <p>Learning through reinforcement and punishment. Positive reinforcement increases behaviour; punishment decreases it. <em>Example:</em> Stars/rewards in classroom.</p>
+        <h4>ཨོ་པཱ་རེནཊ་ཀཱན་དྲི་ཤཱ་ནིང་། Operant Conditioning — Skinner</h4>
+        <p>Learning through reinforcement and punishment. Positive reinforcement increases behaviour. <em>Example: Stars/rewards in classroom.</em></p>
         <span class="tag">Skinner</span><span class="tag maroon">Reinforcement</span>
       </div>
     </div>
   </div>
 
   <div class="note-block">
-    <h3><span class="num-label">4.2</span> Cognitivism — ནང་སེམས་གཞིར་བཞག</h3>
+    <h3><span class="num-label">༤.༢</span> ནང་སེམས་ལུ་གཞིར་བཞག་གི་གྲུབ་མཐའ། Cognitivism</h3>
     <div class="grid-2">
       <div class="mini-card">
-        <h4>Piaget — ཞོན་པེ་ཇེ།</h4>
+        <h4>ཞོན་པེ་ཇེ་། Jean Piaget</h4>
         <p>4 stages of cognitive development: Sensorimotor → Preoperational → Concrete Operational → Formal Operational. Curriculum must match the child's developmental stage.</p>
         <span class="tag teal">Stages</span>
       </div>
       <div class="mini-card">
-        <h4>Kohlberg — ཀཱོལ་བཱག</h4>
-        <p>Moral Development theory. 6 stages of moral reasoning from obedience to universal ethical principles. Relevant for values education in Dzongkha curriculum.</p>
+        <h4>ཀཱོལ་བཱག། Kohlberg — བསམ་སྤྱོད་ཡར་རྒྱས།</h4>
+        <p>Moral Development theory. 6 stages of moral reasoning. Relevant for values education in Dzongkha curriculum.</p>
         <span class="tag teal">Moral</span>
       </div>
       <div class="mini-card">
-        <h4>Vygotsky — ZPD</h4>
-        <p><em>Zone of Proximal Development:</em> the gap between what a student can do alone vs. with help. Curriculum should target this zone — challenge without overwhelm.</p>
+        <h4>Vygotsky — ZPD (ཟད་པི་དྲི།)</h4>
+        <p><em>Zone of Proximal Development:</em> gap between what a student can do alone vs. with help. Curriculum should target this zone — challenge without overwhelm.</p>
         <span class="tag teal">Scaffolding</span>
       </div>
       <div class="mini-card">
-        <h4>Maslow's Hierarchy</h4>
+        <h4>མཱས་ལོ་ཐིའུ་རི། Maslow's Hierarchy</h4>
         <p>Students must have basic needs met before they can learn. Curriculum must consider students' physical safety and belonging needs.</p>
         <span class="tag">Needs</span>
       </div>
       <div class="mini-card">
-        <h4>Gestalt Theory</h4>
+        <h4>ཇིས་ཀྲལཏ་ཐིའུ་རི། Gestalt Theory</h4>
         <p>Learning is holistic — understanding the whole pattern, not just parts. Relevant for integrated curriculum design.</p>
         <span class="tag">Holistic</span>
       </div>
       <div class="mini-card">
-        <h4>Rogers — Student-centered</h4>
-        <p>Emphasizes freedom to learn, self-directed learning, and meaningful education. Aligns with Progressivism.</p>
+        <h4>རོ་གརསི་ཐིའུ་རི། Rogers' Theory</h4>
+        <p>Emphasizes freedom to learn, self-directed learning, and meaningful education. Aligns with Progressivism (ཡར་འཕེལ་གྲུབ་མཐའ།).</p>
         <span class="tag teal">Self-directed</span>
       </div>
     </div>
   </div>
 
+  <!-- QUIZ 4 -->
   <div class="quiz-section" id="quiz3">
     <div class="quiz-header">
       <div class="quiz-icon">✦</div>
       <h3>Chapter 4 Quiz — Psychology of Learning</h3>
     </div>
-
     <div class="quiz-q" id="q3-0">
       <p class="q-text">1. Ivan Pavlov's experiment with a dog salivating at the sound of a bell is an example of:</p>
       <div class="quiz-options">
         <button class="quiz-opt" onclick="checkAnswer(this,'q3-0','b')">a) Operant Conditioning</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q3-0','b')">b) Classical Conditioning ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q3-0','b')">b) Classical Conditioning — ཀ་ལ་སི་ཀལ་ཀཱན་དྲི་ཤཱ་ནིང་། ✓</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q3-0','b')">c) Zone of Proximal Development</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q3-0','b')">d) Moral Development</button>
       </div>
-      <div class="feedback" id="fb-q3-0-correct" class="feedback correct">✓ Classical Conditioning — Pavlov's stimulus-response learning!</div>
-      <div class="feedback" id="fb-q3-0-wrong" class="feedback wrong">✗ Pavlov's dog = Classical Conditioning (ཀ་ལ་སི་ཀལ་ཀཱན་དྲི་ཤཱ་ནིང།)</div>
+      <div class="feedback" id="fb-q3-0-correct" class="feedback correct">✓ ཀ་ལ་སི་ཀལ་ཀཱན་དྲི་ཤཱ་ནིང་། Classical Conditioning — Pavlov's stimulus-response learning!</div>
+      <div class="feedback" id="fb-q3-0-wrong" class="feedback wrong">✗ Pavlov's dog = Classical Conditioning (ཀ་ལ་སི་ཀལ་ཀཱན་དྲི་ཤཱ་ནིང་།)</div>
     </div>
-
     <div class="quiz-q" id="q3-1">
-      <p class="q-text">2. According to Piaget, curriculum should be designed to match the child's:</p>
+      <p class="q-text">2. ཞོན་པེ་ཇེ་གི་གྲུབ་མཐའ་གྱི་འཇམ་ལམ་ (According to Piaget), curriculum should be designed to match the child's:</p>
       <div class="quiz-options">
         <button class="quiz-opt" onclick="checkAnswer(this,'q3-1','c')">a) Parental expectations</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q3-1','c')">b) Social status</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q3-1','c')">c) Developmental stage ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q3-1','c')">c) Developmental stage — ཡར་རྒྱས་ཀྱི་ས་གནས། ✓</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q3-1','c')">d) Academic rank</button>
       </div>
-      <div class="feedback" id="fb-q3-1-correct" class="feedback correct">✓ Piaget: curriculum must match the child's cognitive developmental stage.</div>
+      <div class="feedback" id="fb-q3-1-correct" class="feedback correct">✓ Piaget: curriculum must match the child's cognitive developmental stage (ཡར་རྒྱས་ཀྱི་ས་གནས།).</div>
       <div class="feedback" id="fb-q3-1-wrong" class="feedback wrong">✗ Piaget — 4 developmental stages. Curriculum must align with the child's current stage.</div>
     </div>
-
     <div class="quiz-q" id="q3-2">
-      <p class="q-text">3. The ZPD (Zone of Proximal Development) concept means curriculum should:</p>
+      <p class="q-text">3. ZPD (ཟད་པི་དྲི།) concept means curriculum should:</p>
       <div class="quiz-options">
         <button class="quiz-opt" onclick="checkAnswer(this,'q3-2','a')">a) Challenge students just beyond their current ability with support ✓</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q3-2','a')">b) Only teach what students already know</button>
@@ -974,7 +1002,6 @@
       <div class="feedback" id="fb-q3-2-correct" class="feedback correct">✓ ZPD = gap between independent ability and potential with guidance. Target that zone!</div>
       <div class="feedback" id="fb-q3-2-wrong" class="feedback wrong">✗ ZPD = challenge students just beyond what they can do alone, with scaffolding/support.</div>
     </div>
-
     <div class="quiz-score" id="score3">
       <div class="score-num" id="scoreNum3">0/3</div>
       <div class="score-label">CHAPTER 4 SCORE</div>
@@ -993,19 +1020,20 @@
 <div class="chapter" id="ch4">
   <div class="chapter-header">
     <span class="chapter-num">ལས་ཚན་ལྔ་པ།</span>
-    <h2>འཕྲུལ་རིག་དང་རྩ་གཞུང། <span class="dzo">Technology & Curriculum</span></h2>
+    <h2>འཕྲུལ་རིག་དང་རྩ་གཞུང་། <span class="dzo">Technology &amp; Curriculum · རྩ་གཞུང་གི་གཞི་འཕྲུལ་རིག</span></h2>
   </div>
 
   <div class="teal-callout">
-    <strong>Key Question:</strong> In the era of rapid AI and technological change — what kind of citizen does Bhutan now need? The curriculum must respond to this.
+    <strong>Key Question:</strong> In the era of rapid AI and technological change — <strong>"What kind of citizen does Bhutan now need?"</strong><br>
+    Earlier, education mainly prepared learners to: read and write · pass exams · become civil servants · preserve culture · live morally. These are still valuable, but today's world asks more.
   </div>
 
   <div class="note-block">
-    <h3>Old Model vs New Model</h3>
+    <h3>Old Model vs New Model Needed</h3>
     <table class="compare-table">
       <tr><th>Old Education Model</th><th>New Model Needed</th></tr>
       <tr><td>Memorize and reproduce facts</td><td>Think, question, solve, create</td></tr>
-      <tr><td>Pass exams</td><td>Critical thinking & problem solving</td></tr>
+      <tr><td>Pass exams</td><td>Critical thinking &amp; problem solving</td></tr>
       <tr><td>Become civil servants</td><td>Creators, entrepreneurs, innovators</td></tr>
       <tr><td>Preserve culture only</td><td>Culture + digital citizenship</td></tr>
       <tr><td>Teacher as lecture machine</td><td>Teacher as learning architect</td></tr>
@@ -1015,26 +1043,26 @@
   <div class="note-block">
     <h3>7 Big Shifts in Modern Curriculum</h3>
     <ol class="steps">
-      <li><span class="step-num">1</span><strong>Memorization → Thinking Power:</strong> From "What is climate change?" to "How can our gewog reduce climate impact?"</li>
-      <li><span class="step-num">2</span><strong>Digital Literacy:</strong> Cyber safety, AI literacy — what AI can/cannot do</li>
-      <li><span class="step-num">3</span><strong>Global Citizenship:</strong> Awareness of world issues alongside local identity</li>
-      <li><span class="step-num">4</span><strong>Vocational + Innovation:</strong> Agriculture tech, food processing, coding, robotics, eco-tourism</li>
+      <li><span class="step-num">1</span><strong>Memorization → Thinking Power:</strong> From "What is climate change?" to "How can our gewog reduce climate impact?" — making learning alive</li>
+      <li><span class="step-num">2</span><strong>Digital Literacy:</strong> Cyber safety, AI literacy — what AI can/cannot do. Students must have digital literacy &amp; cyber safety skills.</li>
+      <li><span class="step-num">3</span><strong>Global Citizenship:</strong> Awareness of world issues alongside local Bhutanese identity</li>
+      <li><span class="step-num">4</span><strong>Vocational + Innovation Education:</strong> Agriculture technology · Food processing · Entrepreneurship · Coding · Robotics · Renewable energy · Eco-tourism innovation (Bhutan needs creators, not only job seekers)</li>
       <li><span class="step-num">5</span><strong>Values Education:</strong> Buddhist principles integrated with modern ethics</li>
       <li><span class="step-num">6</span><strong>Environmental Literacy:</strong> Sustainability and climate awareness</li>
-      <li><span class="step-num">7</span><strong>Mental Health & Wellbeing:</strong> Student wellbeing as curriculum concern</li>
+      <li><span class="step-num">7</span><strong>Mental Health &amp; Wellbeing:</strong> Student wellbeing as curriculum concern</li>
     </ol>
   </div>
 
   <div class="callout">
-    <strong>Warning:</strong> If curriculum is outdated — "School teaches yesterday for tomorrow's world." Technology changes society; curriculum must change with it.
+    <strong>Warning:</strong> If curriculum is outdated — <em>"School teaches yesterday for tomorrow's world."</em> Technology changes society; curriculum must change with it.
   </div>
 
+  <!-- QUIZ 5 -->
   <div class="quiz-section" id="quiz4">
     <div class="quiz-header">
       <div class="quiz-icon">✦</div>
-      <h3>Chapter 5 Quiz — Technology & Curriculum</h3>
+      <h3>Chapter 5 Quiz — Technology &amp; Curriculum</h3>
     </div>
-
     <div class="quiz-q" id="q4-0">
       <p class="q-text">1. Instead of asking "What is climate change?" — asking "How can our gewog reduce climate impact?" represents a shift from:</p>
       <div class="quiz-options">
@@ -1046,7 +1074,6 @@
       <div class="feedback" id="fb-q4-0-correct" class="feedback correct">✓ From passive knowledge reproduction to active critical thinking and problem-solving!</div>
       <div class="feedback" id="fb-q4-0-wrong" class="feedback wrong">✗ This represents shift #1 — from memorization to thinking power/critical analysis.</div>
     </div>
-
     <div class="quiz-q" id="q4-1">
       <p class="q-text">2. Teaching robotics, coding, and eco-tourism innovation in Bhutanese schools is part of which curriculum shift?</p>
       <div class="quiz-options">
@@ -1058,7 +1085,6 @@
       <div class="feedback" id="fb-q4-1-correct" class="feedback correct">✓ Bhutan needs creators, not only job seekers — vocational + innovation shift!</div>
       <div class="feedback" id="fb-q4-1-wrong" class="feedback wrong">✗ Robotics, coding, eco-tourism = Vocational + Innovation Education shift.</div>
     </div>
-
     <div class="quiz-score" id="score4">
       <div class="score-num" id="scoreNum4">0/2</div>
       <div class="score-label">CHAPTER 5 SCORE</div>
@@ -1081,67 +1107,86 @@
   </div>
 
   <div class="note-block">
-    <h3><span class="num-label">6.1</span> Tyler's Model (1949) — ཏྲའི་ལར།</h3>
+    <h3><span class="num-label">༦.༡</span> ཏྲའི་ལར་གྱི་རྩ་གཞུང་ཐབས་ལམ། Tyler's Model (1949)</h3>
     <div class="callout">
-      <strong>Approach:</strong> Top-down. Starts with clear objectives. Also called the "Objectives Model."
+      <strong>Approach:</strong> Top-down. Starts with clear objectives. Also called the "Objectives Model." Based on 4 core questions:
+    </div>
+    <div class="dzo-block">
+      ༡. སློབ་གྲྭ་གིས་ཤེས་རིག་གི་དམིགས་ཡུལ་ག་ཅི་འགྲུབ་ནི་ཨིན་ན?<br>
+      ༢. དམིགས་ཡུལ་འདི་འགྲུབ་ཐབས་ལུ་ ཤེས་རིག་གི་ཉམས་མྱོང་ག་ཅི་བྱིན་ནི་ཨིན་ན?<br>
+      ༣. ཤེས་ཡོན་ཉམས་མྱོང་འདི་ བཅའ་སྒྲིག་ག་དེ་སྦེ་མཐིལ་ཕྱིན་སྦེ་རྐྱབ་ནི་ཨིན་ན?<br>
+      ༤. དམིགས་ཡུལ་འདི་གྲུབ་མ་འགྲུབ་ག་དེ་སྦེ་ཧ་གོ་ཚུགས་ནི་སྨོ?
     </div>
     <ol class="steps">
-      <li><span class="step-num">1</span><strong>Define Objectives:</strong> What should students learn? (from students, society, and subject specialists)</li>
-      <li><span class="step-num">2</span><strong>Select Learning Experiences:</strong> Activities that help achieve objectives</li>
-      <li><span class="step-num">3</span><strong>Organize Learning Experiences:</strong> Continuity, sequence, integration</li>
-      <li><span class="step-num">4</span><strong>Evaluate:</strong> Did students meet the objectives?</li>
+      <li><span class="step-num">1</span><strong>Define Clear Objectives:</strong> དམིགས་ཡུལ་འབྱུང་ས་གསུམ: ༡-སློབ་ཕྲུག། ༢-མི་སྡེ། ༣-ཆོས་ཚན། What should students learn? (from students, society, and subject specialists)</li>
+      <li><span class="step-num">2</span><strong>Select Learning Experiences:</strong> Activities that help achieve objectives — meaningful, engaging, suited to learners' developmental levels</li>
+      <li><span class="step-num">3</span><strong>Organize Learning Experiences:</strong> Continuity (building on prior knowledge), Sequence (order of learning), Integration (connections across subjects)</li>
+      <li><span class="step-num">4</span><strong>Evaluate:</strong> Did students meet the objectives? Use results to refine and improve.</li>
     </ol>
   </div>
 
   <div class="note-block">
-    <h3><span class="num-label">6.1b</span> Taba's Model (1962) — ཐིའུ་བཱ།</h3>
+    <h3><span class="num-label">༦.༡ཁ</span> ཐིའུ་བཱའི་རྩ་གཞུང་ཐབས་ལམ། Taba's Model (1962)</h3>
     <div class="teal-callout">
-      <strong>Approach:</strong> Bottom-up. Starts from classrooms (teachers and students). Inductive — grassroots model.
+      <strong>Approach:</strong> Bottom-up. Starts from classrooms (teachers and students). Inductive — grassroots model. Unlike Tyler's top-down model, Taba emphasized starting from the classroom rather than from broad objectives set at system level.
     </div>
     <ol class="steps">
-      <li><span class="step-num">1</span>Diagnose Learner Needs</li>
-      <li><span class="step-num">2</span>Formulate Objectives</li>
-      <li><span class="step-num">3</span>Select Content</li>
-      <li><span class="step-num">4</span>Organize Content</li>
-      <li><span class="step-num">5</span>Select Learning Experiences</li>
-      <li><span class="step-num">6</span>Organize Learning Experiences</li>
-      <li><span class="step-num">7</span>Evaluate</li>
+      <li><span class="step-num">1</span>Diagnose Learner Needs — སློབ་ཕྲུག་གི་དགོས་མཁོ་ངོས་འཛིན།</li>
+      <li><span class="step-num">2</span>Formulate Objectives — དམིགས་ཡུལ་གཏན་འཁེལ།</li>
+      <li><span class="step-num">3</span>Select Content — ནང་དོན་གདམ་ཁ།</li>
+      <li><span class="step-num">4</span>Organize Content — ནང་དོན་བཅའ་སྒྲིག།</li>
+      <li><span class="step-num">5</span>Select Learning Experiences — ཉམས་མྱོང་གདམ་ཁ།</li>
+      <li><span class="step-num">6</span>Organize Learning Experiences — ཉམས་མྱོང་བཅའ་སྒྲིག།</li>
+      <li><span class="step-num">7</span>Evaluate — འབྲས་བུ་བརྟག་དཔྱད།</li>
     </ol>
   </div>
 
   <div class="note-block">
     <h3>Tyler vs Taba — Comparison</h3>
     <table class="compare-table">
-      <tr><th>Feature</th><th>Tyler (1949)</th><th>Taba (1962)</th></tr>
-      <tr><td>Approach</td><td>Top-down</td><td>Bottom-up</td></tr>
+      <tr><th>Feature</th><th>Tyler's Model (1949)</th><th>Taba's Model (1962)</th></tr>
+      <tr><td>Approach</td><td>Top-down (གཡོ་ས་ལས་འོག་ལུ།)</td><td>Bottom-up (འོག་ལས་གཡོ་ས་ལུ།)</td></tr>
       <tr><td>Starting Point</td><td>Define objectives first</td><td>Diagnose learner needs first</td></tr>
-      <tr><td>Philosophy</td><td>Objective-centered</td><td>Inductive, teacher-driven</td></tr>
-      <tr><td>Role of Teachers</td><td>Implementers</td><td>Designers & developers</td></tr>
+      <tr><td>Philosophy</td><td>Objective-centered, systematic</td><td>Inductive, teacher-driven, responsive</td></tr>
+      <tr><td>Role of Teachers</td><td>Implementers</td><td>Designers &amp; developers</td></tr>
       <tr><td>Flexibility</td><td>More standardized</td><td>Adaptable, context-sensitive</td></tr>
-      <tr><td>Best for</td><td>National standards</td><td>Local/classroom needs</td></tr>
+      <tr><td>Best for</td><td>National standards</td><td>Local/classroom needs (དྲུང་ཁྱིམ་སྦེ་ Dzongkha classrooms)</td></tr>
     </table>
   </div>
 
   <div class="note-block">
-    <h3><span class="num-label">6.2</span> Backward vs Forward Design</h3>
+    <h3><span class="num-label">༦.༢</span> Backward vs Forward Design</h3>
+    <div class="grid-2">
+      <div class="mini-card">
+        <h4>Backward Design (རྒྱབ་ལོག་རྩ་གཞུང་རྩོམ་ཐངས།)</h4>
+        <p>Planning begins with desired learning outcomes. Process: Identify outcomes → Decide assessments → Plan lessons. Focus: End goals, measurable outcomes, transfer of knowledge.</p>
+        <p><em>Good for: national standards, competency-based learning, project-based outcomes</em></p>
+        <span class="tag teal">Outcome-driven</span>
+      </div>
+      <div class="mini-card">
+        <h4>Forward Design (མདུན་རྒྱུགས་རྩ་གཞུང་རྩོམ་ཐངས།)</h4>
+        <p>Traditional approach starting with content and lesson planning. Process: Plan syllabus → Deliver content → Assess. Focus: Content coverage and sequencing.</p>
+        <p><em>Good for: traditional subject-based curricula where content mastery is priority</em></p>
+        <span class="tag">Content-driven</span>
+      </div>
+    </div>
     <table class="compare-table">
       <tr><th>Aspect</th><th>Backward Design</th><th>Forward Design</th></tr>
-      <tr><td>Starting Point</td><td>Desired outcomes (what should students achieve?)</td><td>Content delivery (what to teach?)</td></tr>
+      <tr><td>Starting Point</td><td>Desired outcomes (ལས་དོན་འགྲུབ་ཐབས།)</td><td>Content delivery (ནང་དོན་སྟོན་ནི།)</td></tr>
       <tr><td>Sequence</td><td>Outcomes → Assessment → Lessons</td><td>Lessons → Content → Assessment</td></tr>
-      <tr><td>Focus</td><td>End goals, measurable outcomes</td><td>Content coverage</td></tr>
       <tr><td>Strengths</td><td>Alignment, deeper understanding</td><td>Simple, familiar to teachers</td></tr>
-      <tr><td>Weakness</td><td>Time-intensive planning</td><td>Risk of rote learning, misalignment</td></tr>
+      <tr><td>Weaknesses</td><td>Time-intensive planning</td><td>Risk of rote learning, misalignment</td></tr>
     </table>
   </div>
 
+  <!-- QUIZ 6 -->
   <div class="quiz-section" id="quiz5">
     <div class="quiz-header">
       <div class="quiz-icon">✦</div>
       <h3>Chapter 6 Quiz — Development Models</h3>
     </div>
-
     <div class="quiz-q" id="q5-0">
-      <p class="q-text">1. Tyler's model is called the "Objectives Model" because it:</p>
+      <p class="q-text">1. Tyler's model is called the "Objectives Model" because it: (ཏྲའི་ལར་གྱི་ཐབས་ལམ་འདི་ "Objectives Model" ཟེར་གོ་ག་ཅི་འབད་ཟེར?)</p>
       <div class="quiz-options">
         <button class="quiz-opt" onclick="checkAnswer(this,'q5-0','a')">a) Starts with defining clear learning objectives ✓</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q5-0','a')">b) Starts with diagnosing student needs</button>
@@ -1151,9 +1196,8 @@
       <div class="feedback" id="fb-q5-0-correct" class="feedback correct">✓ Tyler's model = Objectives first! Everything else follows the defined goals.</div>
       <div class="feedback" id="fb-q5-0-wrong" class="feedback wrong">✗ Tyler starts with defining clear objectives. That's why it's the "Objectives Model."</div>
     </div>
-
     <div class="quiz-q" id="q5-1">
-      <p class="q-text">2. Taba's model is especially useful in Dzongkha classrooms in Bhutan because:</p>
+      <p class="q-text">2. Taba's model is especially useful in Dzongkha classrooms in Bhutan because: (ཐིའུ་བཱའི་ཐབས་ལམ་འདི་ འབྲུག་གི་རྫོང་ཁའི་སློབ་ཁང་ལུ་ ག་ཅི་འབད་ཕན་ཐོགསཔ་སྨོ?)</p>
       <div class="quiz-options">
         <button class="quiz-opt" onclick="checkAnswer(this,'q5-1','c')">a) It is simpler than Tyler's model</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q5-1','c')">b) It starts with national policy</button>
@@ -1163,7 +1207,6 @@
       <div class="feedback" id="fb-q5-1-correct" class="feedback correct">✓ Taba = grassroots, teacher-driven — perfect for adapting to local/cultural contexts!</div>
       <div class="feedback" id="fb-q5-1-wrong" class="feedback wrong">✗ Taba's bottom-up approach empowers teachers to adapt curriculum to local community needs.</div>
     </div>
-
     <div class="quiz-q" id="q5-2">
       <p class="q-text">3. In Backward Design, what comes FIRST in the planning process?</p>
       <div class="quiz-options">
@@ -1175,9 +1218,8 @@
       <div class="feedback" id="fb-q5-2-correct" class="feedback correct">✓ Backward Design: Start with the END goal (outcomes), then plan backward!</div>
       <div class="feedback" id="fb-q5-2-wrong" class="feedback wrong">✗ Backward Design starts with desired outcomes, then assessment, then teaching activities.</div>
     </div>
-
     <div class="quiz-q" id="q5-3">
-      <p class="q-text">4. Which model's steps are: Diagnose needs → Formulate objectives → Select content → Organize content → Evaluate?</p>
+      <p class="q-text">4. Which model's steps are: Diagnose needs → Formulate objectives → Select content → Organize → Evaluate? (གོ་རིམ་འདི་ ཐབས་ལམ་ག་འདི་གིས་ཨིན་སྨོ?)</p>
       <div class="quiz-options">
         <button class="quiz-opt" onclick="checkAnswer(this,'q5-3','b')">a) Tyler's Model</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q5-3','b')">b) Taba's Model ✓</button>
@@ -1187,7 +1229,6 @@
       <div class="feedback" id="fb-q5-3-correct" class="feedback correct">✓ Taba's 7-step model starts with diagnosing learner needs — grassroots approach!</div>
       <div class="feedback" id="fb-q5-3-wrong" class="feedback wrong">✗ These are Taba's steps — starting from need diagnosis (bottom-up, 7 steps).</div>
     </div>
-
     <div class="quiz-score" id="score5">
       <div class="score-num" id="scoreNum5">0/4</div>
       <div class="score-label">CHAPTER 6 SCORE</div>
@@ -1206,14 +1247,14 @@
 <div class="chapter" id="ch6">
   <div class="chapter-header">
     <span class="chapter-num">ལས་ཚན་བདུན་པ།</span>
-    <h2>དམིགས་ཡུལ་དང་ལས་དོན། <span class="dzo">Aims, Goals & Objectives</span></h2>
+    <h2>དམིགས་ཡུལ་དང་ལས་དོན། <span class="dzo">Aims, Goals &amp; Objectives</span></h2>
   </div>
 
   <div class="note-block">
-    <h3>3 Levels of Educational Purpose</h3>
+    <h3><span class="num-label">༧.༡</span> 3 Levels of Educational Purpose</h3>
     <div class="grid-2">
       <div class="mini-card">
-        <h4>① Aims — སྤྱིར་བཏང་དམིགས་ཡུལ།</h4>
+        <h4>① Aims — སྤྱིར་གཏང་དམིགས་ཡུལ།</h4>
         <p>Broad, general purpose of education. Long-term, aspirational direction. <em>Example:</em> "Develop responsible citizens for Bhutan."</p>
         <span class="tag">Broad</span><span class="tag maroon">Long-term</span>
       </div>
@@ -1224,7 +1265,7 @@
       </div>
       <div class="mini-card">
         <h4>③ Objectives — ལས་དོན།</h4>
-        <p>Specific, measurable outcomes for lessons. Must include an action verb. Written using SMART or ABCD format.</p>
+        <p>Specific, measurable outcomes for lessons. Must include an action verb (གསལ་བ་ཅན་གྱི་བྱ་ཚིག།). Written using SMART or ABCD format.</p>
         <span class="tag teal">Measurable</span><span class="tag">Action verb</span>
       </div>
     </div>
@@ -1232,65 +1273,84 @@
 
   <div class="note-block">
     <h3>Behavioural vs Non-Behavioural Objectives</h3>
+    <div class="dzo-block">
+      བྱ་སྤྱོད་དམིགས་གཏད་བསྐྱེད་པའི་ལས་དོན།: གསལ་བ་ཅན་གྱི་བྱ་ཚིག་ཡོད་མི། Observable and measurable behaviour.<br>
+      བྱ་སྤྱོད་དམིགས་གཏད་མ་བསྐྱེད་པའི་ལས་དོན།: གསལ་བ་ཅན་གྱི་བྱ་ཚིག་མེད་མི། Vague, hard to measure.
+    </div>
     <table class="compare-table">
       <tr><th>Type</th><th>Characteristics</th><th>Example</th></tr>
       <tr><td><strong>Behavioural Objective</strong></td><td>Has clear action verb, observable, measurable (SMART/ABCD)</td><td>"Students will <em>identify</em> 5 types of Dzongkha verbs in a sentence."</td></tr>
-      <tr><td><strong>Non-Behavioural Objective</strong></td><td>No clear action verb, vague, hard to measure</td><td>"Students will understand grammar."</td></tr>
+      <tr><td><strong>Non-Behavioural Objective</strong></td><td>No clear action verb (བྱ་ཚིག་མེད།), vague, hard to measure</td><td>"Students will <em>understand</em> grammar."</td></tr>
     </table>
   </div>
 
   <div class="note-block">
     <h3>ABCD Format for Writing Objectives</h3>
     <div class="grid-2">
-      <div class="mini-card"><h4>A — Audience</h4><p>Who? <em>The Grade 7 students...</em></p></div>
-      <div class="mini-card"><h4>B — Behaviour</h4><p>What action verb? <em>...will identify...</em></p></div>
+      <div class="mini-card"><h4>A — Audience</h4><p>Who? <em>The Grade 7 students... (སློབ་རིམ་བདུན་པའི་སློབ་ཕྲུག་ཚུ་...)</em></p></div>
+      <div class="mini-card"><h4>B — Behaviour</h4><p>What action verb? <em>...will identify... (གསལ་བ་ཅན་གྱི་བྱ་ཚིག།)</em></p></div>
       <div class="mini-card"><h4>C — Condition</h4><p>Under what conditions? <em>...given a written text...</em></p></div>
       <div class="mini-card"><h4>D — Degree</h4><p>How well / standard? <em>...with 80% accuracy.</em></p></div>
     </div>
   </div>
 
+  <div class="note-block">
+    <h3>Sample Exam Questions &amp; Answers</h3>
+    <div class="qa-block">
+      <p class="q">གདན་ཁ་ཅན་གྱི་དྲི་བ།</p>
+      <p class="dzo-q">༡. རང་ལུ་དགོ་པའི་ཤེས་ཡོན་དང་རིག་རྩལ་རྐྱངམ་གཅིག་ལུ་གཙོ་བོར་བཏོན་མི་ཤེས་རིག་གི་གྲུབ་མཐའ་ག་འདི་སྨོ?</p>
+      <p class="a">ལན། ང — ཉེར་མཁོ་གཙོར་བཏོན་གྱི་གྲུབ་མཐའ།</p>
+    </div>
+    <div class="qa-block">
+      <p class="dzo-q">༢. མནོ་བསམ་རྒྱ་ཆེཝ་སྦེ་བཏང་ཐོག་ལས་ ཨ་ལོ་གི་དགོས་མཁོ་དང་སྤྲོ་བ་ཚུ་ལུ་གཞི་བཞག་སྟེ་ ཨ་ལོ་གཙོ་བོར་བཏོན་མི་གྲུབ་མཐའ་ག་འདི་སྨོ?</p>
+      <p class="a">ལན། ཀ — ཡར་འཕེལ་གཙོར་བཏོན་གྱི་གྲུབ་མཐའ།</p>
+    </div>
+    <div class="qa-block">
+      <p class="q">ལན་རིང་གི་དྲི་བ།</p>
+      <p class="dzo-q">རྒྱུན་གནས་གཙོར་བཏོན་གྱི་ཤེས་ཡོན་གྲུབ་མཐའ་འདི་ག་ཅི་སྦེ་ཁག་ཆེཝ་སྨོ? འདི་གིས་སློབ་ཕྲུག་ཚུ་ལུ་ག་དེ་སྦེ་ཕན་ཐོགསཔ་སྨོ?</p>
+      <p class="a">ལན། རྒྱུན་གནས་གཙོར་བཏོན་གྱི་གྲུབ་མཐའ་འདི་ཁག་ཆེ། ག་ཅི་འབད་ཟེར་བ་ཅིན་ འདི་གིས་ སློབ་ཕྲུག་ཚུ་ལུ་ མི་ཚེ་ནང་ཁག་ཆེ་བའི་རིག་རྩལ་ དཔེར་ན་ སྒྲིག་ལམ་རྣམ་གཞག་བཟུམ་ཚུ་ཤེས་བཅུག་པའི་ཁ་ལུ་ འདི་ལས་བརྟེན་ སློབ་ཕྲུག་ཚུ་གིས་ རང་རང་དྲན་ཤེས་ཡོདཔ་སྦེ་སྡོད་ནི་དང་ མི་སྡེ་ནང་ལུ་ གུས་ཞབས་དང་བརྩི་བཀུར། ཐ་དམ་ཚིག་དང་ ལས་རྒྱུ་འབྲས་ཀྱི་རྣམ་གཞག་ཚུ་ བརྒྱུད་ལུ་ཤེས་བཅུགཔ་ཨིནམ་ལས་ འབྲུགཔ་ཨིན་པའི་ཁྱད་ཆོས་ངོ་མ་ཅིག་ འདི་གིས་སྟོན་ཚུགསཔ་ཨིན།</p>
+    </div>
+  </div>
+
+  <!-- QUIZ 7 -->
   <div class="quiz-section" id="quiz6">
     <div class="quiz-header">
       <div class="quiz-icon">✦</div>
-      <h3>Chapter 7 Quiz — Aims, Goals & Objectives</h3>
+      <h3>Chapter 7 Quiz — Aims, Goals &amp; Objectives</h3>
     </div>
-
     <div class="quiz-q" id="q6-0">
       <p class="q-text">1. "Develop responsible and productive citizens for Bhutan" is an example of:</p>
       <div class="quiz-options">
-        <button class="quiz-opt" onclick="checkAnswer(this,'q6-0','a')">a) An Aim ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q6-0','a')">a) An Aim — སྤྱིར་གཏང་དམིགས་ཡུལ། ✓</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q6-0','a')">b) A Goal</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q6-0','a')">c) A Behavioural Objective</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q6-0','a')">d) A Non-Behavioural Objective</button>
       </div>
-      <div class="feedback" id="fb-q6-0-correct" class="feedback correct">✓ An Aim — broad, long-term, aspirational purpose of education.</div>
-      <div class="feedback" id="fb-q6-0-wrong" class="feedback wrong">✗ This is an Aim — broad general purpose, not specific or measurable.</div>
+      <div class="feedback" id="fb-q6-0-correct" class="feedback correct">✓ སྤྱིར་གཏང་དམིགས་ཡུལ། — broad, long-term, aspirational purpose of education.</div>
+      <div class="feedback" id="fb-q6-0-wrong" class="feedback wrong">✗ This is an Aim (སྤྱིར་གཏང་དམིགས་ཡུལ།) — broad general purpose, not specific or measurable.</div>
     </div>
-
     <div class="quiz-q" id="q6-1">
-      <p class="q-text">2. "Students will understand Dzongkha grammar" — this is a _____ objective.</p>
+      <p class="q-text">2. "Students will understand Dzongkha grammar" (རྫོང་ཁའི་བརྡ་སྤྲོད་ཤེས་ཚུགསཔ་བཟོ་ནི།) — this is a _____ objective.</p>
       <div class="quiz-options">
-        <button class="quiz-opt" onclick="checkAnswer(this,'q6-1','b')">a) Behavioural</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q6-1','b')">b) Non-Behavioural ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q6-1','b')">a) Behavioural (བྱ་ཚིག་གསལ་བ་ཅན།)</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q6-1','b')">b) Non-Behavioural — བྱ་ཚིག་མེད་མི། ✓</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q6-1','b')">c) Goal</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q6-1','b')">d) Aim</button>
       </div>
-      <div class="feedback" id="fb-q6-1-correct" class="feedback correct">✓ "Understand" is vague and unmeasurable — a non-behavioural objective!</div>
+      <div class="feedback" id="fb-q6-1-correct" class="feedback correct">✓ "Understand" is vague and unmeasurable — བྱ་ཚིག་གསལ་བ་ཅན་མེད། Non-behavioural!</div>
       <div class="feedback" id="fb-q6-1-wrong" class="feedback wrong">✗ "Understand" has no clear action verb → Non-Behavioural. Use "identify/write/explain" instead.</div>
     </div>
-
     <div class="quiz-q" id="q6-2">
-      <p class="q-text">3. In the ABCD objective format, what does "D" stand for?</p>
+      <p class="q-text">3. In the ABCD objective format, what does "D" stand for? (ABCD ལས་དོན་ཡིག་རྟགས་ཀྱི་ D ཟེར་མི་འདི་ ག་ཅི་གི་དོན་ཨིན་སྨོ?)</p>
       <div class="quiz-options">
         <button class="quiz-opt" onclick="checkAnswer(this,'q6-2','d')">a) Direction</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q6-2','d')">b) Duration</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q6-2','d')">c) Domain</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q6-2','d')">d) Degree ✓</button>
       </div>
-      <div class="feedback" id="fb-q6-2-correct" class="feedback correct">✓ D = Degree — the standard/level of performance expected (e.g., 80% accuracy).</div>
-      <div class="feedback" id="fb-q6-2-wrong" class="feedback wrong">✗ ABCD: Audience, Behaviour, Condition, Degree (the performance standard).</div>
+      <div class="feedback" id="fb-q6-2-correct" class="feedback correct">✓ D = Degree (གནས་ཚད།) — the standard/level of performance expected (e.g., 80% accuracy).</div>
+      <div class="feedback" id="fb-q6-2-wrong" class="feedback wrong">✗ ABCD: Audience, Behaviour, Condition, Degree (གནས་ཚད། — the performance standard).</div>
     </div>
-
     <div class="quiz-score" id="score6">
       <div class="score-num" id="scoreNum6">0/3</div>
       <div class="score-label">CHAPTER 7 SCORE</div>
@@ -1309,95 +1369,96 @@
 <div class="chapter" id="ch7">
   <div class="chapter-header">
     <span class="chapter-num">ལས་ཚན་བརྒྱད་དགུ།</span>
-    <h2>ནང་དོན་གདམ་ཁ་དང་བཅའ་སྒྲིག <span class="dzo">Content Selection & Organisation</span></h2>
+    <h2>ནང་དོན་གདམ་ཁ་དང་བཅའ་སྒྲིག <span class="dzo">Content Selection &amp; Organisation</span></h2>
   </div>
 
   <div class="teal-callout">
-    <strong>Chapter 8:</strong> Principles for selecting content (Tyler & Schubert). <strong>Chapter 9:</strong> Organising that content — vertically (continuity/sequence) and horizontally (integration).
+    <strong>ལས་ཚན་བརྒྱད་པ།</strong> — Principles for selecting content (Tyler &amp; Schubert)<br>
+    <strong>ལས་ཚན་དགུ་པ།</strong> — Organising that content: གོང་འོག་གི་བཅའ་སྒྲིག (Vertical) and ཕན་ཚུན་གྱི་བཅའ་སྒྲིག (Horizontal Integration)
   </div>
 
   <div class="note-block">
-    <h3><span class="num-label">8.1</span> Tyler's Principles for Selecting Content</h3>
+    <h3><span class="num-label">༨.༡</span> ཏྲའི་ལར་གྱི་ གནད་དོན་གདམ་ཁ་རྐྱབ་ནིའི་གཞི་རྩ། Tyler's Principles for Selecting Content</h3>
     <ul class="content-list">
-      <li><strong>Validity</strong> — Content must be accurate and truly represent the subject</li>
-      <li><strong>Significance</strong> — Must contribute to core ideas and concepts</li>
-      <li><strong>Balance</strong> — Breadth and depth must both be served</li>
-      <li><strong>Relevance</strong> — Must connect to students' real-life experiences</li>
-      <li><strong>Learnability</strong> — Must be within students' ability and developmental range</li>
-      <li><strong>Interest</strong> — Should engage and motivate learners</li>
+      <li><strong>Validity (དྲང་ཐིག།)</strong> — Content must be accurate and truly represent the subject</li>
+      <li><strong>Significance (གལ་ཆེ་བ།)</strong> — Must contribute to core ideas and concepts</li>
+      <li><strong>Balance (ཤོ་མཉམ།)</strong> — Breadth and depth must both be served</li>
+      <li><strong>Relevance (འབྲེལ་བ།)</strong> — Must connect to students' real-life experiences</li>
+      <li><strong>Learnability (ལྷབ་འབབ།)</strong> — Must be within students' ability and developmental range</li>
+      <li><strong>Interest (སྤྲོ་བ།)</strong> — Should engage and motivate learners</li>
     </ul>
   </div>
 
   <div class="note-block">
-    <h3><span class="num-label">9.1</span> Two Types of Content Organisation</h3>
+    <h3><span class="num-label">༩.༡</span> བཅའ་སྒྲིག་ལྷམ་པ་གཉིས། Two Types of Content Organisation</h3>
     <div class="grid-2">
       <div class="mini-card">
-        <h4>Vertical Organisation (གོང་འོག་)</h4>
-        <p><strong>Continuity:</strong> Same content/skill revisited repeatedly over time. <strong>Sequence:</strong> Content ordered logically — simple to complex, known to unknown.</p>
-        <p><em>Example:</em> Dzongkha verb forms taught in Grade 5, revisited and deepened in Grade 7.</p>
+        <h4>གོང་འོག་གི་བཅའ་སྒྲིག། Vertical Organisation</h4>
+        <div class="dzo-block" style="margin-bottom:0.5rem;">གོང་འོག་གི་བཅའ་སྒྲིག་རྒྱུན་མཐུད་དང་གོ་རིམ་ཐོག་ལས་རྐྱབ་ཐངས།</div>
+        <p><strong>Continuity (རྒྱུན་མཐུད།):</strong> Same content/skill revisited repeatedly over time.</p>
+        <p><strong>Sequence (གོ་རིམ།):</strong> Content ordered logically — simple to complex, known to unknown.</p>
+        <p><em>Example:</em> Dzongkha verb forms taught in Grade 5, revisited and deepened in Grade 7 — Spiral Curriculum.</p>
         <span class="tag">Spiral Curriculum</span>
       </div>
       <div class="mini-card">
-        <h4>Horizontal Organisation (ཕན་ཚུན་)</h4>
-        <p><strong>Integration:</strong> Connecting content across subjects at the same level. Cross-curricular links for holistic understanding.</p>
-        <p><em>Example:</em> Teaching water in Dzongkha, Science, AND Social Studies simultaneously.</p>
+        <h4>ཕན་ཚུན་གྱི་བཅའ་སྒྲིག། Horizontal Organisation</h4>
+        <div class="dzo-block" style="margin-bottom:0.5rem;">ཕན་ཚུན་བཅའ་སྒྲིག་གཅིག་སྒྲིལ་ཐོག་ལས་རྐྱབ་ཐངས།</div>
+        <p><strong>Integration (གཅིག་སྒྲིལ།):</strong> Connecting content across subjects at the same level. Cross-curricular links for holistic understanding.</p>
+        <p><em>Example:</em> Teaching "Water" (ཆུ།) in Dzongkha, Science, AND Social Studies simultaneously. "Real life is integrated, teaching should be too."</p>
         <span class="tag teal">Interdisciplinary</span>
       </div>
     </div>
   </div>
 
   <div class="note-block">
-    <h3>Curriculum Design for Learner Development</h3>
+    <h3>༩.༤ སློབ་ཕྲུག་གི་ཡར་རྒྱས་དང་མཐུན་པའི་རྩ་གཞུང་བཟོ་ཐངས།</h3>
     <ul class="content-list">
-      <li>Content must match the learner's cognitive, emotional, and physical development stage (Piaget)</li>
-      <li>Curriculum should scaffold learning — build on prior knowledge</li>
-      <li>Content should challenge without overwhelming (ZPD)</li>
-      <li>Diverse cultural backgrounds and inclusive education must be considered</li>
+      <li>Content must match the learner's cognitive, emotional, and physical development stage — Piaget (ཞོན་པེ་ཇེ།)</li>
+      <li>Curriculum should scaffold learning — build on prior knowledge (གོང་གི་ཤེས་ཡོན་གཞིར་བཞག།)</li>
+      <li>Content should challenge without overwhelming — ZPD (ཟད་པི་དྲི།)</li>
+      <li>Diverse cultural backgrounds and inclusive education must be considered — ནང་ཚུད་ཤེས་ཡོན། (Inclusive Education)</li>
     </ul>
   </div>
 
+  <!-- QUIZ 8 -->
   <div class="quiz-section" id="quiz7">
     <div class="quiz-header">
       <div class="quiz-icon">✦</div>
-      <h3>Chapter 8–9 Quiz — Content Selection & Organisation</h3>
+      <h3>Chapter 8–9 Quiz — Content Selection &amp; Organisation</h3>
     </div>
-
     <div class="quiz-q" id="q7-0">
-      <p class="q-text">1. Dzongkha grammar rules taught in Grade 5, then revisited with more complexity in Grade 7 is an example of:</p>
+      <p class="q-text">1. སློབ་རིམ་ལྔ་པར་རྫོང་ཁའི་བྱ་ཚིག་ཚུ་སློབ་སྟོན་འབད་དེ་ སློབ་རིམ་བདུན་པར་བལྟ་སྐྱར་སྟོན་མི་འདི་ ག་ཅི་གི་དཔེར་ཨིན་སྨོ? (Dzongkha grammar in Grade 5, revisited in Grade 7 is an example of:)</p>
       <div class="quiz-options">
-        <button class="quiz-opt" onclick="checkAnswer(this,'q7-0','b')">a) Horizontal Integration</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q7-0','b')">b) Vertical Continuity/Sequence ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q7-0','b')">a) Horizontal Integration — ཕན་ཚུན་གཅིག་སྒྲིལ།</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q7-0','b')">b) Vertical Continuity/Sequence — གོང་འོག་གི་རྒྱུན་མཐུད། ✓</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q7-0','b')">c) Null Curriculum</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q7-0','b')">d) Backward Design</button>
       </div>
-      <div class="feedback" id="fb-q7-0-correct" class="feedback correct">✓ Vertical organisation — revisiting content across grade levels with increasing depth!</div>
-      <div class="feedback" id="fb-q7-0-wrong" class="feedback wrong">✗ Revisiting same topic across grade levels = Vertical Continuity/Sequence (གོང་འོག་).</div>
+      <div class="feedback" id="fb-q7-0-correct" class="feedback correct">✓ གོང་འོག་གི་བཅའ་སྒྲིག།! Vertical organisation — revisiting content across grade levels with increasing depth!</div>
+      <div class="feedback" id="fb-q7-0-wrong" class="feedback wrong">✗ Revisiting same topic across grade levels = Vertical Continuity/Sequence (གོང་འོག་གི་རྒྱུན་མཐུད།).</div>
     </div>
-
     <div class="quiz-q" id="q7-1">
-      <p class="q-text">2. Which Tyler principle ensures that content is accurate and truly represents the subject matter?</p>
+      <p class="q-text">2. Which Tyler principle ensures that content is accurate and truly represents the subject matter? (ཏྲའི་ལར་གྱི་གཞི་རྩ་ག་འདི་གིས་ ནང་དོན་ཀྱི་འདྲ་ཤེས་ཤུགས་ཆེ་བཟུང་ཡོདཔ་སྨོ?)</p>
       <div class="quiz-options">
-        <button class="quiz-opt" onclick="checkAnswer(this,'q7-1','a')">a) Validity ✓</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q7-1','a')">b) Balance</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q7-1','a')">c) Interest</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q7-1','a')">d) Relevance</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q7-1','a')">a) Validity — དྲང་ཐིག། ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q7-1','a')">b) Balance — ཤོ་མཉམ།</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q7-1','a')">c) Interest — སྤྲོ་བ།</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q7-1','a')">d) Relevance — འབྲེལ་བ།</button>
       </div>
-      <div class="feedback" id="fb-q7-1-correct" class="feedback correct">✓ Validity = content must be accurate and genuinely represent the field of study.</div>
-      <div class="feedback" id="fb-q7-1-wrong" class="feedback wrong">✗ Validity ensures content accuracy. Balance = breadth/depth. Relevance = real-life connection.</div>
+      <div class="feedback" id="fb-q7-1-correct" class="feedback correct">✓ Validity (དྲང་ཐིག།) = content must be accurate and genuinely represent the field of study.</div>
+      <div class="feedback" id="fb-q7-1-wrong" class="feedback wrong">✗ Validity (དྲང་ཐིག།) ensures content accuracy. Balance = breadth/depth. Relevance = real-life connection.</div>
     </div>
-
     <div class="quiz-q" id="q7-2">
-      <p class="q-text">3. Teaching the topic of "water" across Dzongkha, Science, and Social Studies at the same grade level is:</p>
+      <p class="q-text">3. Teaching "Water" (ཆུ།) across Dzongkha, Science, and Social Studies at the same grade level is: (རྫོང་ཁ་དང་ཚན་རིག་ དེ་ལས་སྤྱི་ཚོགས་རིག་གནས་ གསུམ་ལུ་ "ཆུ" གི་བར་ལུ་འབྲེལ་བ་བཏང་མི་འདི་ ག་ཅི་གི་དཔེར་ཨིན་སྨོ?)</p>
       <div class="quiz-options">
-        <button class="quiz-opt" onclick="checkAnswer(this,'q7-2','c')">a) Vertical Sequence</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q7-2','c')">a) Vertical Sequence — གོང་འོག་གོ་རིམ།</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q7-2','c')">b) Null Curriculum</button>
-        <button class="quiz-opt" onclick="checkAnswer(this,'q7-2','c')">c) Horizontal Integration ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this,'q7-2','c')">c) Horizontal Integration — ཕན་ཚུན་གཅིག་སྒྲིལ། ✓</button>
         <button class="quiz-opt" onclick="checkAnswer(this,'q7-2','c')">d) Prescribed Curriculum</button>
       </div>
-      <div class="feedback" id="fb-q7-2-correct" class="feedback correct">✓ Horizontal Integration — connecting subjects across the same level for holistic learning!</div>
+      <div class="feedback" id="fb-q7-2-correct" class="feedback correct">✓ ཕན་ཚུན་གཅིག་སྒྲིལ།! Horizontal Integration — connecting subjects across the same level for holistic learning!</div>
       <div class="feedback" id="fb-q7-2-wrong" class="feedback wrong">✗ Cross-subject connections at same level = Horizontal Integration (ཕན་ཚུན་གཅིག་སྒྲིལ།).</div>
     </div>
-
     <div class="quiz-score" id="score7">
       <div class="score-num" id="scoreNum7">0/3</div>
       <div class="score-label">CHAPTER 8–9 SCORE</div>
@@ -1490,9 +1551,9 @@ function showScore(chIdx) {
   const t = quizData[chIdx].total;
 
   scoreNum.textContent = c + '/' + t;
-  scoreMsg.textContent = c === t ? '🎉 Perfect! You know this chapter well.' :
-    c >= t * 0.7 ? '👍 Good work! Review the missed ones.' :
-    '📚 Keep studying — re-read the notes and try again!';
+  scoreMsg.textContent = c === t ? '🎉 Perfect! ལེགས་ཤོམ་ཤིན་ཏུ་! You know this chapter well.' :
+    c >= t * 0.7 ? '👍 Good work! ལེགས་འདུག! Review the missed ones.' :
+    '📚 བལྟ་སྐྱར་རྐྱབ། Keep studying — re-read the notes and try again!';
   scoreDiv.classList.add('show');
 }
 
