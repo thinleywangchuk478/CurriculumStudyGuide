@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Curriculum Exam 2026 – Comprehensive Notes</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/ddc-uchen" type="text/css"/>
 <style>
   /* ── CUSTOM FONT (Joyig) ── 
      Drop your Joyig font files into the same folder as this HTML file,
@@ -41,8 +42,8 @@
     --correct-bg: #E6F4EC;
     --wrong: #8B1A1A;
     --wrong-bg: #F4E6E6;
-    /* Dzongkha font stack — uses Joyig when uncommented above */
-    --dzo-font: 'Joyig', 'Noto Serif Tibetan', 'Tibetan Machine Uni', serif;
+    /* Dzongkha font — DDC Uchen from Font Library (loads on any device) */
+    --dzo-font: 'DDCUchenRegular', 'Noto Serif Tibetan', 'Tibetan Machine Uni', serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1483,7 +1484,7 @@
 
   <div class="chapter-nav-footer">
     <button class="nav-chapter-btn" onclick="showChapterByIndex(6)">← Chapter 7</button>
-    <button class="nav-chapter-btn next" onclick="showChapterByIndex(8)">Revision Qs →</button>
+    <button class="nav-chapter-btn next" onclick="showChapterWithAutoLoad(8, document.querySelectorAll('.nav-btn')[8])">Revision Qs →</button>
   </div>
 </div>
 
@@ -1498,16 +1499,11 @@
     <strong>How this works:</strong> Built-in exam questions from the notes are shown below. You can also load additional questions live from your Google Doc — paste the sharing link and click Load.
   </div>
 
-  <!-- Google Docs Loader -->
+  <!-- Google Docs Auto-Loader — questions load automatically -->
   <div class="revision-panel">
     <div class="revision-config">
-      <h3>📄 Load Questions from Google Docs</h3>
-      <p style="font-size:13px;color:var(--ink-soft);margin-bottom:0.75rem;">Share your Google Doc publicly (anyone with link → Viewer), paste the link below, and click Load. Format your Doc with questions on lines starting with <code>Q:</code> and answers on lines starting with <code>A:</code> — type tags like <code>[MCQ]</code>, <code>[SHORT]</code>, or <code>[LONG]</code> anywhere in the question line.</p>
-      <div class="gdocs-row">
-        <input type="text" class="gdocs-input" id="gdocsUrl" placeholder="https://docs.google.com/document/d/...">
-        <button class="btn-load" id="btnLoad" onclick="loadFromGDocs()">Load ↓</button>
-      </div>
-      <div class="gdocs-hint">Tip: In Google Docs → Share → Anyone with the link → Viewer → Copy link</div>
+      <h3>📄 Revision Questions from Google Docs</h3>
+      <p style="font-size:13px;color:var(--ink-soft);">Questions are loaded automatically from your class Google Doc. Each question is collapsible — tap to reveal the answer.</p>
     </div>
     <div class="revision-status" id="revStatus"></div>
     <div class="revision-qa-list" id="gdocsQAList"></div>
@@ -1739,35 +1735,34 @@ function toggleRQ(item) {
   item.classList.toggle('open');
 }
 
-// ── GOOGLE DOCS LOADER ──
-async function loadFromGDocs() {
-  const raw = document.getElementById('gdocsUrl').value.trim();
-  if (!raw) return;
-  const btn = document.getElementById('btnLoad');
+// ── GOOGLE DOCS AUTO-LOADER ──
+// Hardcoded published Google Doc URL — updates every 5 minutes automatically
+const GDOC_PUB_URL = 'https://docs.google.com/document/d/e/2PACX-1vQOpSNApAqB_WQvr_mSgBWdNc-_6HvM36SkDV4Zfxqlkdi5BNl-AFOIcrO-1xWca35kcf1Qy6hPcJ38/pub';
+
+async function autoLoadGDocs() {
   const status = document.getElementById('revStatus');
   const list = document.getElementById('gdocsQAList');
 
-  btn.disabled = true;
   status.className = 'revision-status show loading';
-  status.innerHTML = '<div class="spinner"></div> Loading from Google Docs…';
+  status.innerHTML = '<div class="spinner"></div> Loading questions…';
 
   try {
-    // Extract document ID
-    const match = raw.match(/\/d\/([a-zA-Z0-9_-]+)/);
-    if (!match) throw new Error('Could not find document ID in the URL. Make sure you paste the full sharing link.');
-    const docId = match[1];
+    const response = await fetch(GDOC_PUB_URL);
+    if (!response.ok) throw new Error('Could not fetch document (' + response.status + ').');
+    const html = await response.text();
 
-    // Google Docs export as plain text
-    const exportUrl = `https://docs.google.com/document/d/${docId}/export?format=txt`;
+    // Parse the published HTML — extract text from <p> tags
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const paras = Array.from(doc.querySelectorAll('p'));
+    const lines = paras.map(p => p.innerText || p.textContent).map(t => t.trim()).filter(Boolean);
 
-    const response = await fetch(exportUrl);
-    if (!response.ok) throw new Error(`Could not fetch document (${response.status}). Make sure the doc is shared publicly.`);
-
-    const text = await response.text();
-    const items = parseQA(text);
+    const items = parseDocLines(lines);
 
     if (items.length === 0) {
-      throw new Error('No Q:/A: pairs found. Format lines as "Q: your question" and "A: your answer" in the Google Doc.');
+      status.className = 'revision-status show error';
+      status.innerHTML = '✗ No questions found. Make sure each question starts with ༡༽, ༢༽ etc. and answer follows on the next line starting with ལན།';
+      return;
     }
 
     list.innerHTML = '';
@@ -1775,59 +1770,97 @@ async function loadFromGDocs() {
       const div = document.createElement('div');
       div.className = 'rq-item';
       div.onclick = function(){ toggleRQ(this); };
-      const typeClass = item.type === 'MCQ' ? 'mcq' : item.type === 'LONG' ? 'long' : 'short';
-      div.innerHTML = `
-        <div class="rq-q">
-          <span class="rq-num">${i+1}</span>
-          <span class="rq-q-text">${escHtml(item.q)}</span>
-          <span class="rq-toggle">▾</span>
-        </div>
-        <div class="rq-a">
-          <div class="rq-a-inner">
-            <span class="rq-type-badge ${typeClass}">${item.type}</span><br>
-            ${escHtml(item.a).replace(/\n/g,'<br>')}
-          </div>
-        </div>`;
+
+      // Detect question type from content
+      let type = 'SHORT';
+      if (/ལན་རིང|ལན་རིངམ/i.test(item.section)) type = 'LONG';
+      if (/གདམ་ཁ|MCQ/i.test(item.section)) type = 'MCQ';
+      const typeClass = type === 'MCQ' ? 'mcq' : type === 'LONG' ? 'long' : 'short';
+
+      div.innerHTML =
+        '<div class="rq-q">' +
+          '<span class="rq-num">' + (i+1) + '</span>' +
+          '<span class="rq-q-text">' + escHtml(item.q) + '</span>' +
+          '<span class="rq-toggle">▾</span>' +
+        '</div>' +
+        '<div class="rq-a">' +
+          '<div class="rq-a-inner">' +
+            '<span class="rq-type-badge ' + typeClass + '">' + type + '</span><br>' +
+            escHtml(item.a).replace(/\n/g, '<br>') +
+          '</div>' +
+        '</div>';
       list.appendChild(div);
     });
 
     status.className = 'revision-status show success';
-    status.innerHTML = `✓ Loaded ${items.length} question${items.length > 1 ? 's' : ''} from Google Docs.`;
+    status.innerHTML = '✓ ' + items.length + ' questions loaded from Google Docs.';
+
   } catch(e) {
     status.className = 'revision-status show error';
-    status.innerHTML = `✗ ${e.message}`;
+    status.innerHTML = '✗ ' + e.message;
   }
-
-  btn.disabled = false;
 }
 
-function parseQA(text) {
-  const lines = text.split('\n');
+function parseDocLines(lines) {
   const items = [];
-  let current = null;
+  let currentSection = '';
+  let i = 0;
 
-  for (let line of lines) {
-    line = line.trim();
-    if (/^Q:/i.test(line)) {
-      if (current && current.q && current.a) items.push(current);
-      const qText = line.replace(/^Q:\s*/i, '').trim();
-      let type = 'SHORT';
-      if (/\[MCQ\]/i.test(qText)) type = 'MCQ';
-      else if (/\[LONG\]/i.test(qText)) type = 'LONG';
-      current = { q: qText.replace(/\[(MCQ|SHORT|LONG)\]/gi,'').trim(), a: '', type };
-    } else if (/^A:/i.test(line) && current) {
-      current.a = line.replace(/^A:\s*/i, '').trim();
-    } else if (current && current.a && line) {
-      current.a += '\n' + line;
+  while (i < lines.length) {
+    const line = lines[i];
+
+    // Detect section headers (e.g. ལན་རིང་གི་དྲི་བ། / ལན་ཐུང་གི་དྲི་བ། / གདམ་ཁ་ཅན་གྱི་དྲི་བ།)
+    if (/ལན་རིང|ལན་ཐུང|གདམ་ཁ་ཅན|ལས་ཚན/.test(line) && line.length < 80) {
+      currentSection = line;
+      i++;
+      continue;
     }
+
+    // Detect question lines — Tibetan number markers like ༡༽ ༢༽ ༡. ༢. ༡༽ etc.
+    const qMatch = line.match(/^[༡༢༣༤༥༦༧༨༩༠\d][༽\.。)\s]/);
+    if (qMatch) {
+      const qText = line;
+      // Collect answer lines — starts after question, until next question or section
+      let aLines = [];
+      let j = i + 1;
+      while (j < lines.length) {
+        const next = lines[j];
+        // Stop at next question or section header
+        if (/^[༡༢༣༤༥༦༧༨༩༠\d][༽\.。)\s]/.test(next) && next !== qText) break;
+        if (/ལན་རིང|ལན་ཐུང|གདམ་ཁ་ཅན|ལས་ཚན/.test(next) && next.length < 80) break;
+        // Answer lines often start with ལན། or ལན་་
+        aLines.push(next);
+        j++;
+      }
+      const answer = aLines.join('\n').trim();
+      if (answer) {
+        items.push({ q: qText, a: answer, section: currentSection });
+      }
+      i = j;
+      continue;
+    }
+    i++;
   }
-  if (current && current.q && current.a) items.push(current);
   return items;
 }
 
 function escHtml(s) {
+  if (!s) return '';
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
+
+// Auto-load when Revision tab is first shown
+let gdocsLoaded = false;
+const origShowChapter = showChapter;
+function showChapterWithAutoLoad(index, btn) {
+  showChapter(index, btn);
+  if (index === 8 && !gdocsLoaded) {
+    gdocsLoaded = true;
+    autoLoadGDocs();
+  }
+}
+// Override nav buttons for revision tab
+document.querySelectorAll('.nav-btn')[8].onclick = function(){ showChapterWithAutoLoad(8, this); };
 
 updateProgress();
 </script>
