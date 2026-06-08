@@ -580,7 +580,7 @@
   <div class="header-inner">
     <div class="header-badge">Pocket Study Notes · PgDE 2026</div>
     <h1>COMPREHENSIVE NOTE on<br><span>CURRICULUM EXAM 2026</span></h1>
-    <div class="subtitle">Prepared by PgDE (Dzongkha) 2, 2026 · Paro College of Education, RUB</div>
+    <div class="subtitle">Prepared by PgDE (Dzongkha) 2, 2026 · Samtse College of Education, RUB</div>
   </div>
 </header>
 
@@ -2133,17 +2133,20 @@ async function autoLoadGDocs() {
     if (!response.ok) throw new Error('Could not fetch document (' + response.status + ').');
     const html = await response.text();
 
-    // Parse the published HTML — extract text from <p> tags
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
-    const paras = Array.from(doc.querySelectorAll('p'));
-    const lines = paras.map(p => p.innerText || p.textContent).map(t => t.trim()).filter(Boolean);
+
+    // Get ALL text content, preserving paragraph breaks
+    const paras = Array.from(doc.querySelectorAll('p, li'));
+    const lines = paras
+      .map(p => (p.innerText || p.textContent || '').trim())
+      .filter(l => l.length > 0);
 
     const items = parseDocLines(lines);
 
     if (items.length === 0) {
       status.className = 'revision-status show error';
-      status.innerHTML = '✗ No questions found. Make sure each question starts with ༡༽, ༢༽ etc. and answer follows on the next line starting with ལན།';
+      status.innerHTML = '✗ No questions found in the document.';
       return;
     }
 
@@ -2153,12 +2156,7 @@ async function autoLoadGDocs() {
       div.className = 'rq-item';
       div.onclick = function(){ toggleRQ(this); };
 
-      // Detect question type from content
-      let type = 'SHORT';
-      if (/ལན་རིང|ལན་རིངམ/i.test(item.section)) type = 'LONG';
-      if (/གདམ་ཁ|MCQ/i.test(item.section)) type = 'MCQ';
-      const typeClass = type === 'MCQ' ? 'mcq' : type === 'LONG' ? 'long' : 'short';
-
+      const typeClass = item.type === 'MCQ' ? 'mcq' : item.type === 'LONG' ? 'long' : 'short';
       div.innerHTML =
         '<div class="rq-q">' +
           '<span class="rq-num">' + (i+1) + '</span>' +
@@ -2167,7 +2165,7 @@ async function autoLoadGDocs() {
         '</div>' +
         '<div class="rq-a">' +
           '<div class="rq-a-inner">' +
-            '<span class="rq-type-badge ' + typeClass + '">' + type + '</span><br>' +
+            '<span class="rq-type-badge ' + typeClass + '">' + item.type + '</span><br>' +
             escHtml(item.a).replace(/\n/g, '<br>') +
           '</div>' +
         '</div>';
@@ -2175,7 +2173,7 @@ async function autoLoadGDocs() {
     });
 
     status.className = 'revision-status show success';
-    status.innerHTML = '✓ ' + items.length + ' questions loaded from Google Docs.';
+    status.innerHTML = '✓ ' + items.length + ' questions loaded.';
 
   } catch(e) {
     status.className = 'revision-status show error';
@@ -2185,44 +2183,96 @@ async function autoLoadGDocs() {
 
 function parseDocLines(lines) {
   const items = [];
-  let currentSection = '';
   let i = 0;
+  let currentSection = '';
+
+  // Detect if a line is a section/chapter header
+  function isHeader(l) {
+    return (
+      /ལས་ཚན|ལན་རིང་གི་དྲི་བ|ལན་ཐུང་གི་དྲི་བ|གདམ་ཁ་ཅན་གྱི་དྲི་བ|ལན་གདམ་ཁ་ཅན|ལན་གདམ་ཁ/.test(l) ||
+      /Chapter|CHAPTER/.test(l)
+    ) && l.length < 120;
+  }
+
+  // Detect if a line starts a question
+  // Matches: ༡༽ ༢༽ ༣༽ ... or ༡. ༢. ༣. or 1. 2. 3. or ༡.༡༽ etc.
+  function isQuestion(l) {
+    return /^[༡༢༣༤༥༦༧༨༩༠\d][\.\༽\)༼]/.test(l.trimStart()) ||
+           /^[༡༢༣༤༥༦༧༨༩\d]+\.[༡༢༣༤༥༦༧༨༩\d]*༽/.test(l.trimStart());
+  }
+
+  // Detect if a line is an answer start
+  function isAnswer(l) {
+    return /^ལན[་།\s]/.test(l) || /^ལན་[་།\s]/.test(l) || /^\s*ལན[།\s]/.test(l);
+  }
+
+  // Determine question type from section header
+  function getType(section) {
+    if (/གདམ་ཁ|MCQ/.test(section)) return 'MCQ';
+    if (/ལན་རིང/.test(section)) return 'LONG';
+    return 'SHORT';
+  }
 
   while (i < lines.length) {
-    const line = lines[i];
+    const line = lines[i].trim();
 
-    // Detect section headers (e.g. ལན་རིང་གི་དྲི་བ། / ལན་ཐུང་གི་དྲི་བ། / གདམ་ཁ་ཅན་གྱི་དྲི་བ།)
-    if (/ལན་རིང|ལན་ཐུང|གདམ་ཁ་ཅན|ལས་ཚན/.test(line) && line.length < 80) {
+    if (!line) { i++; continue; }
+
+    // Update section header
+    if (isHeader(line)) {
       currentSection = line;
       i++;
       continue;
     }
 
-    // Detect question lines — Tibetan number markers like ༡༽ ༢༽ ༡. ༢. ༡༽ etc.
-    const qMatch = line.match(/^[༡༢༣༤༥༦༧༨༩༠\d][༽\.。)\s]/);
-    if (qMatch) {
-      const qText = line;
-      // Collect answer lines — starts after question, until next question or section
+    // Found a question line
+    if (isQuestion(line)) {
+      let qLines = [line];
       let aLines = [];
       let j = i + 1;
+
+      // Collect continuation of the question (until we hit an answer or next question or header)
       while (j < lines.length) {
-        const next = lines[j];
-        // Stop at next question or section header
-        if (/^[༡༢༣༤༥༦༧༨༩༠\d][༽\.。)\s]/.test(next) && next !== qText) break;
-        if (/ལན་རིང|ལན་ཐུང|གདམ་ཁ་ཅན|ལས་ཚན/.test(next) && next.length < 80) break;
-        // Answer lines often start with ལན། or ལན་་
-        aLines.push(next);
+        const next = lines[j].trim();
+        if (!next) { j++; continue; }
+        if (isAnswer(next) || isQuestion(next) || isHeader(next)) break;
+        // More question text (e.g. choices on next lines for MCQ)
+        qLines.push(next);
         j++;
       }
-      const answer = aLines.join('\n').trim();
-      if (answer) {
-        items.push({ q: qText, a: answer, section: currentSection });
+
+      // Now collect the answer
+      if (j < lines.length && isAnswer(lines[j].trim())) {
+        aLines.push(lines[j].trim());
+        j++;
+        // Collect continuation of answer
+        while (j < lines.length) {
+          const next = lines[j].trim();
+          if (!next) { j++; continue; }
+          if (isQuestion(next) || isHeader(next) || isAnswer(next)) break;
+          aLines.push(next);
+          j++;
+        }
       }
+
+      const qText = qLines.join('\n').trim();
+      const aText = aLines.join('\n').trim();
+
+      if (qText && aText) {
+        items.push({
+          q: qText,
+          a: aText,
+          type: getType(currentSection)
+        });
+      }
+
       i = j;
       continue;
     }
+
     i++;
   }
+
   return items;
 }
 
