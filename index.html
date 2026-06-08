@@ -580,7 +580,7 @@
   <div class="header-inner">
     <div class="header-badge">Pocket Study Notes · PgDE 2026</div>
     <h1>COMPREHENSIVE NOTE on<br><span>CURRICULUM EXAM 2026</span></h1>
-    <div class="subtitle">Prepared by PgDE (Dzongkha) 2, 2026 · Paro College of Education, RUB</div>
+    <div class="subtitle">Prepared by Thinley Wangchuk based on notes Compiled by PgDE (Dzongkha) 2 mates & Notes compiled by Dorji Khando, B.ed Dzongkha 4th year, 2026· Paro College of Education, RUB</div>
   </div>
 </header>
 
@@ -1515,12 +1515,12 @@
     <div class="grid-2">
       <div class="mini-card">
         <h4>གནད་དོན་རྒྱ་ཆེ་བ། Broad Sense</h4>
-        <div class="dzo-block">སོབ་གྲྭ་ནང་ལུ་ལྷབ་མི་ཉམས་མོང་བཟུམ་ལུ་སབ་ཨིན། ཕྱི་ཡུལ་ལས་འཐོབ་པའི་ཉམས་མོང་དང་རིག་རྩལ།</div>
+        <div class="dzo-block">སློབ་གྲྭ་ནང་ལུ་ལྷབ་མི་ཉམས་མོང་བཟུམ་ལུ་སབ་ཨིན། ཕྱི་ཡུལ་ལས་འཐོབ་པའི་ཉམས་མོང་དང་རིག་རྩལ།</div>
         <p>All experiences and skills gained both inside AND outside school — including physical, mental, and social development.</p>
       </div>
       <div class="mini-card">
         <h4>གནད་དོན་རྒྱ་ཆུང་བ། Narrow Sense</h4>
-        <div class="dzo-block">སོབ་ཁང་ནང་སོབ་སོན་འབད་ནི་གི་ཆོས་ཚན་ལུ་སབ་ཨིན།</div>
+        <div class="dzo-block">སློབ་གྲྭ་ནང་སློབ་སོན་འབད་ནི་གི་ཆོས་ཚན་ལུ་སླབ་ཨིན།</div>
         <p>Refers only to specific subjects taught in the classroom — the formal syllabus and subject matter.</p>
       </div>
     </div>
@@ -2293,6 +2293,313 @@ function showChapterWithAutoLoad(index, btn) {
 }
 // Override nav buttons for revision tab (index 11)
 document.querySelectorAll('.nav-btn')[11].onclick = function(){ showChapterWithAutoLoad(11, this); };
+
+updateProgress();
+</script>
+</body>
+</html>
+<div class="chapter" id="ch11">
+  <div class="chapter-header">
+    <span class="chapter-num" style="background:var(--gold-dark);color:#fff;">རྩིས་ཤོག</span>
+    <h2>Revision Questions <span class="dzo">རྩིས་ཤོག་དྲི་བ་ཚུ།</span></h2>
+  </div>
+
+  <div class="teal-callout">
+    <strong>How this works:</strong> Questions load automatically from your class Google Doc. Tap any question to reveal the answer. Built-in questions are shown below.
+  </div>
+
+  <div class="revision-panel">
+    <div class="revision-config">
+      <h3>📄 Revision Questions from Google Docs</h3>
+      <p style="font-size:13px;color:var(--ink-soft);">Questions are loaded automatically from your class Google Doc. Each question is collapsible — tap to reveal the answer.</p>
+    </div>
+    <div class="revision-status" id="revStatus"></div>
+    <div class="revision-qa-list" id="gdocsQAList"></div>
+  </div>
+
+  <div class="builtin-qs">
+    <h4>ཀ༽ གདམ་ཁ་ཅན་གྱི་དྲི་བ། MCQ Questions</h4>
+
+    <div class="rq-item" onclick="toggleRQ(this)">
+      <div class="rq-q"><span class="rq-num">༡</span><span class="rq-q-text">རང་ལུ་དགོ་པའི་ཤེས་ཡོན་དང་རིག་རྩལ་རྐྱངམ་གཅིག་ལུ་གཙོ་བོར་བཏོན་མི་ཤེས་རིག་གི་གྲུབ་མཐའ་ག་འདི་སྨོ?<br><small style="color:var(--ink-soft);">(ཀ) ཡར་འཕེལ་གཙོར་བཏོན་ (ཁ) མི་སྡེ་ལེགས་བཅོས་གཙོར་བཏོན་ (ག) རྒྱུན་གནས་གཙོར་བཏོན་ (ང) ཉེར་མཁོ་གཙོར་བཏོན་</small></span><span class="rq-toggle">▾</span></div>
+      <div class="rq-a"><div class="rq-a-inner"><span class="rq-type-badge mcq">MCQ</span><br>ལན། <strong>ང — ཉེར་མཁོ་གཙོར་བཏོན་གྱི་གྲུབ་མཐའ།</strong><br>Essentialism focuses on essential/needed skills for society. Content decided by teacher, not student interest.</div></div>
+    </div>
+
+    <div class="rq-item" onclick="toggleRQ(this)">
+      <div class="rq-q"><span class="rq-num">༢</span><span class="rq-q-text">མནོ་བསམ་རྒྱ་ཆེཝ་སྦེ་བཏང་ཐོག་ལས་ ཨ་ལོ་གི་དགོས་མཁོ་དང་སྤྲོ་བ་ཚུ་ལུ་གཞི་བཞག་སྟེ་ ཨ་ལོ་གཙོ་བོར་བཏོན་མི་གྲུབ་མཐའ་ག་འདི་སྨོ?<br><small style="color:var(--ink-soft);">(ཀ) ཡར་འཕེལ་གཙོར་བཏོན་ (ཁ) མི་སྡེ་ལེགས་བཅོས་གཙོར་བཏོན་ (ག) རྒྱུན་གནས་གཙོར་བཏོན་ (ང) ཉེར་མཁོ་གཙོར་བཏོན་</small></span><span class="rq-toggle">▾</span></div>
+      <div class="rq-a"><div class="rq-a-inner"><span class="rq-type-badge mcq">MCQ</span><br>ལན། <strong>ཀ — ཡར་འཕེལ་གཙོར་བཏོན་གྱི་གྲུབ་མཐའ།</strong><br>Progressivism = student-centered; teacher as facilitator; based on student ability and interest.</div></div>
+    </div>
+
+    <h4 style="margin-top:1.5rem;">ཁ༽ ལན་ཐུང་གི་དྲི་བ། Short Answer Questions</h4>
+
+    <div class="rq-item" onclick="toggleRQ(this)">
+      <div class="rq-q"><span class="rq-num">༣</span><span class="rq-q-text">ཤེས་རིག་གི་གྲུབ་མཐའ་བཞི་ག་ཅི་ར་སྨོ? རེ་རེ་བཞིན་ཐོ་བཀོད་འབད།</span><span class="rq-toggle">▾</span></div>
+      <div class="rq-a"><div class="rq-a-inner"><span class="rq-type-badge short">SHORT</span><br>
+      ལན།<br>
+      ༡) རྒྱུན་གནས་གཙོར་བཏོན་གྱི་གྲུབ་མཐའ། (Perennialism)<br>
+      ༢) ཉེར་མཁོ་གཙོར་བཏོན་གྱི་གྲུབ་མཐའ། (Essentialism)<br>
+      ༣) ཡར་འཕེལ་གཙོར་བཏོན་གྱི་གྲུབ་མཐའ། (Progressivism)<br>
+      ༤) མི་སྡེ་ལེགས་བཅོས་གཙོར་བཏོན་གྱི་གྲུབ་མཐའ། (Social Reconstructionism)</div></div>
+    </div>
+
+    <div class="rq-item" onclick="toggleRQ(this)">
+      <div class="rq-q"><span class="rq-num">༤</span><span class="rq-q-text">རྩ་གཞུང་གི་དབྱེ་བ་ལྔ་ག་ཅི་ར་ཨིན་ན? དེ་ཚུ་གི་གོ་དོན་ཐུང་ཐུང་སྦེ་ཞུ།</span><span class="rq-toggle">▾</span></div>
+      <div class="rq-a"><div class="rq-a-inner"><span class="rq-type-badge short">SHORT</span><br>
+      ལན།<br>
+      ༡) <strong>ལམ་སྟོན་བཀོད་རྒྱའི་རྩ་གཞུང་</strong> (Prescribed) — MoE གིས་རྩོམ་སྒྲིག་མི་ official curriculum.<br>
+      ༢) <strong>ལག་ལེན་ཐོག་སློབ་སྟོན་མི་རྩ་གཞུང་</strong> (Taught) — སློབ་དཔོན་གྱིས་ སློབ་ཁང་ནང་ཉིན་རེའི་སློབ་སྟོན།<br>
+      ༣) <strong>ལྷབ་མི་ལུ་བརྟེན་པའི་རྩ་གཞུང་</strong> (Learnt) — སློབ་ཕྲུག་གི་ལྷབ་སྦྱང་གི་གྲུབ་འབྲས།<br>
+      ༤) <strong>གསང་བའི་རྩ་གཞུང་</strong> (Hidden) — ནང་དོན་སྦེ་མ་སྟོན་ཡང་ལྷབ་མི་གནས་ལུགས་དང་རིན་ཐང་ཚུ།<br>
+      ༥) <strong>མེད་པའི་རྩ་གཞུང་</strong> (Null) — མ་སྟོན་མི་ཤེས་ཡོན་དང་རིག་རྩལ།</div></div>
+    </div>
+
+    <div class="rq-item" onclick="toggleRQ(this)">
+      <div class="rq-q"><span class="rq-num">༥</span><span class="rq-q-text">Tyler's Model དང་ Taba's Model གཉིས་ཀྱི་ཁྱད་པར་གཙོ་བོ་ག་ཅི་སྨོ?</span><span class="rq-toggle">▾</span></div>
+      <div class="rq-a"><div class="rq-a-inner"><span class="rq-type-badge short">SHORT</span><br>
+      ལན།<br>
+      <strong>Tyler (1949)</strong> = Top-down (གཡོ་ས་ལས་འོག་ལུ།) — starts with defining broad objectives first. Policymakers drive design. 4 steps. More standardized.<br>
+      <strong>Taba (1962)</strong> = Bottom-up (འོག་ལས་གཡོ་ས་ལུ།) — starts from diagnosing learner needs in classroom. Teachers drive design. 7 steps. More flexible and adaptive to local context.</div></div>
+    </div>
+
+    <div class="rq-item" onclick="toggleRQ(this)">
+      <div class="rq-q"><span class="rq-num">༦</span><span class="rq-q-text">CBAM གི་ Stages of Concern བདུན་ག་ཅི་ར་སྨོ?</span><span class="rq-toggle">▾</span></div>
+      <div class="rq-a"><div class="rq-a-inner"><span class="rq-type-badge short">SHORT</span><br>
+      ལན།<br>
+      ༡) Awareness — "What is this new curriculum?"<br>
+      ༢) Informational — "Tell me more about it."<br>
+      ༣) Personal — "How will this affect me?"<br>
+      ༤) Management — "How do I organize lessons?"<br>
+      ༥) Consequence — "Are students benefiting?"<br>
+      ༦) Collaboration — "Let's co-plan together!"<br>
+      ༧) Refocusing — "I have ideas to improve it!"</div></div>
+    </div>
+
+    <div class="rq-item" onclick="toggleRQ(this)">
+      <div class="rq-q"><span class="rq-num">༧</span><span class="rq-q-text">གཅིག་འབྲེལ་རྩ་གཞུང་གི་དབྱེ་བ་བཞི་ག་ཅི་ར་ཨིན་ན? དཔེར་ན་ཞིག་གིས་གསལ་བཤད་འབད།</span><span class="rq-toggle">▾</span></div>
+      <div class="rq-a"><div class="rq-a-inner"><span class="rq-type-badge short">SHORT</span><br>
+      ལན།<br>
+      ༡) <strong>ནང་འཁོད་ཆོས་ཚན། Intradisciplinary</strong> — Integration within one subject. E.g. Math: Algebra + Geometry.<br>
+      ༢) <strong>ས་མང་ཆོས་ཚན། Multidisciplinary</strong> — Same theme, separate lessons. E.g. "Water": Science teaches cycle, English teaches rivers essay.<br>
+      ༣) <strong>ཕན་ཚུན་ཆོས་ཚན། Interdisciplinary</strong> — Subjects blend. E.g. Math + Science: data graphs.<br>
+      ༤) <strong>སློར་རྒྱུར་ཆོས་ཚན། Transdisciplinary</strong> — Beyond subjects, real-world PBL. E.g. "Make school eco-friendly."</div></div>
+    </div>
+
+    <h4 style="margin-top:1.5rem;">ག༽ ལན་རིང་གི་དྲི་བ། Long Answer Questions</h4>
+
+    <div class="rq-item" onclick="toggleRQ(this)">
+      <div class="rq-q"><span class="rq-num">༨</span><span class="rq-q-text">རྒྱུན་གནས་གཙོར་བཏོན་གྱི་ཤེས་ཡོན་གྲུབ་མཐའ་འདི་ག་ཅི་སྦེ་ཁག་ཆེཝ་སྨོ? འདི་གིས་སློབ་ཕྲུག་ཚུ་ལུ་ག་དེ་སྦེ་ཕན་ཐོགསཔ་སྨོ?</span><span class="rq-toggle">▾</span></div>
+      <div class="rq-a"><div class="rq-a-inner"><span class="rq-type-badge long">LONG</span><br>
+      ལན། རྒྱུན་གནས་གཙོར་བཏོན་གྱི་གྲུབ་མཐའ་འདི་ཁག་ཆེ། ག་ཅི་འབད་ཟེར་བ་ཅིན་ འདི་གིས་སློབ་ཕྲུག་ཚུ་ལུ་མི་ཚེ་ནང་ཁག་ཆེ་བའི་རིག་རྩལ་ དཔེར་ན་སྒྲིག་ལམ་རྣམ་གཞག་བཟུམ་ཚུ་ཤེས་བཅུག་པའི་ཁ་ལུ་ འདི་ལས་བརྟེན་སློབ་ཕྲུག་ཚུ་གིས་རང་རང་དྲན་ཤེས་ཡོདཔ་སྦེ་སྡོད་ནི་དང་ མི་སྡེ་ནང་ལུ་གུས་ཞབས་དང་བརྩི་བཀུར། ཐ་དམ་ཚིག་དང་ལས་རྒྱུ་འབྲས་ཀྱི་རྣམ་གཞག་ཚུ་བརྒྱུད་ལུ་ཤེས་བཅུགཔ་ཨིནམ་ལས་ འབྲུགཔ་ཨིན་པའི་ཁྱད་ཆོས་ངོ་མ་ཅིག་འདི་གིས་སྟོན་ཚུགསཔ་ཨིན།<br><br>
+      In English: Perennialism is important because it teaches timeless values like discipline, respect, cause and effect, and moral codes. Rooted in Buddhist philosophy, these eternal truths help students develop self-awareness and show genuine Bhutanese identity.</div></div>
+    </div>
+
+    <div class="rq-item" onclick="toggleRQ(this)">
+      <div class="rq-q"><span class="rq-num">༩</span><span class="rq-q-text">ཤེས་རིག་གི་གྲུབ་མཐའ་བཞི་དང་དེ་ཚུ་རྩ་གཞུང་བརྩམ་ད་ལུ་གཞི་ཁག་ཆེ་བའི་སྐོར་ལས་བཤད་པ་རྐྱབ།</span><span class="rq-toggle">▾</span></div>
+      <div class="rq-a"><div class="rq-a-inner"><span class="rq-type-badge long">LONG</span><br>
+      ལན། ཤེས་རིག་གི་གྲུབ་མཐའ་བཞི་འདི་ རྒྱུན་གནས་གཙོར་བཏོན། ཉེར་མཁོ་གཙོར་བཏོན། མི་སྡེ་ལེགས་བཅོས་གཙོར་བཏོན། དེ་ལས་ཡར་འཕེལ་གཙོར་བཏོན་གྱི་གྲུབ་མཐའ་ཚུ་ཨིན།<br><br>
+      These 4 philosophies are important because:<br>
+      ༡) They help identify national needs — what knowledge matters for Bhutan<br>
+      ༢) They guide educational goals, teaching methods, classroom management, and assessment systems<br>
+      ༣) Each philosophy falls within one of the 4 foundations, guiding what gets included in curriculum and why<br>
+      ༤) Combining elements from multiple philosophies (Eclecticism) produces a more balanced curriculum<br>
+      ༥) Without them, curriculum developers cannot determine what kind of citizens the nation needs to cultivate</div></div>
+    </div>
+
+    <div class="rq-item" onclick="toggleRQ(this)">
+      <div class="rq-q"><span class="rq-num">༡༠</span><span class="rq-q-text">མི་སྡེ་འདི་སེམས་ཁར་མ་བཞག་པ་ཅིན་རྩ་གཞུང་ལུ་དཀའ་ངལ་ག་ཅི་འཐོན་འོང་? མི་སྡེ་རྩ་གཞུང་གི་གཞི་རྩ་ཨིན་པའི་ཁུངས་ག་ཅི་ར་ཨིན་ན?</span><span class="rq-toggle">▾</span></div>
+      <div class="rq-a"><div class="rq-a-inner"><span class="rq-type-badge long">LONG</span><br>
+      ལན། མི་སྡེ་སེམས་ཁར་མ་བཞག་པ་ཅིན་ རྩ་གཞུང་འདི་མི་ཚེའི་གནས་སྟངས་ངོ་མའི་ལུ་འབྲེལ་བ་མེདཔ་འགྱོ་ནི་དང་ སློབ་ཕྲུག་ཚུ་གིས་མི་སྡེ་ནང་དགོས་མཁོ་ཡོད་པའི་རིག་རྩལ་དང་རིན་ཐང་ཚུ་ཐོབ་མི་ཚུགས།<br><br>
+      Society must be considered because:<br>
+      • རྩ་གཞུང་གིས་མི་སྡེའི་དགོས་མཁོ་གྲུབ་ཚུགས་ནི་དང་དཀའ་ངལ་སེལ་ནི་ལུ་གྲ་སྒྲིག་འབད་དགོ།<br>
+      • ངོ་རྟགས་དང་ལམ་སྲོལ་ཉམས་སྲུང་འབད་ནི་— Bhutan: language, traditions<br>
+      • མི་སྡེའི་འགྱུར་བ་དང་འཁྲིལ་བའི་གདོང་ལེན་འབད་ཚུགས་ — digital age, climate crisis<br>
+      • Society supports and funds schools — so it has a right to expect curriculum to serve its goals<br>
+      • Education is a continuous cycle: Society → Curriculum → Schools → Educated Citizens → Society changes → Curriculum changes again</div></div>
+    </div>
+
+    <div class="rq-item" onclick="toggleRQ(this)">
+      <div class="rq-q"><span class="rq-num">༡༡</span><span class="rq-q-text">ཞོན་པེ་ཇེ་གི་མནོ་རིག་གོང་འཕེལ་གྱི་དུས་རིམ་བཞི་གི་སྐོར་ལས་གསལ་བཤད་འབད། སློབ་སྟོན་གྱི་གོང་དུ་ག་ཅི་བལྟ་དགོ?</span><span class="rq-toggle">▾</span></div>
+      <div class="rq-a"><div class="rq-a-inner"><span class="rq-type-badge long">LONG</span><br>
+      ལན། ཞོན་པེ་ཇེ་གི་མནོ་རིག་གོང་འཕེལ་གྱི་དུས་རིམ་བཞི།<br><br>
+      ༡) Sensorimotor (0–2 yrs) — ཚོར་སྣང་ཐོག་ལས་རྐང་ལག་སྤར་ནི། Learn through senses &amp; motor actions.<br>
+      ༢) Preoperational (2–7 yrs) — མནོ་ཐངས་ཨ་ཙི་རེ་བཏགས་པ། Language develops; egocentric thinking.<br>
+      ༣) Concrete Operational (7–11 yrs) — མིག་མཐོང་ལག་བཟུང་གི་གནས་ཚད། Logical thinking with concrete objects.<br>
+      ༤) Formal Operational (12+) — མནོ་ནི་བཏགས་ཏེ་ལཱ་འབད་ཚུགས། Abstract reasoning; hypothetical thinking.<br><br>
+      Key principle: ཨ་ལོའི་མནོ་རིག་འདི་རང་བཞིན་ཐོག་ལས་ཡར་དྲག་གཏང་དགོཔ་མ་གཏོགས་ མགྱོགས་པར་འཕུལ་ནི་མི་འོང་། Curriculum must match the child's current stage — never rush development.</div></div>
+    </div>
+
+    <div class="rq-item" onclick="toggleRQ(this)">
+      <div class="rq-q"><span class="rq-num">༡༢</span><span class="rq-q-text">སྤྱིར་བཏང་དམིགས་ཡུལ། རྩ་གཞུང་དམིགས་ཡུལ། དེ་ལས་ལས་དོན་གསུམ་གྱི་ཁྱད་པར་བཤད།</span><span class="rq-toggle">▾</span></div>
+      <div class="rq-a"><div class="rq-a-inner"><span class="rq-type-badge long">LONG</span><br>
+      ལན།<br><br>
+      <strong>① སྤྱིར་བཏང་དམིགས་ཡུལ། Aims</strong> — Broad, long-term, national level. Written by education leaders &amp; committees. E.g. "Develop responsible citizens." Lifetime achievement.<br><br>
+      <strong>② རྩ་གཞུང་དམིགས་ཡུལ། Goals</strong> — Specific per subject &amp; programme. Written by curriculum developers. Future-oriented but not as short as objectives. E.g. "Students will demonstrate Dzongkha reading fluency by Grade 7."<br><br>
+      <strong>③ ལས་དོན། Objectives</strong> — Specific, measurable outcomes for ONE lesson. Written by teachers. Must have clear action verb (གསལ་བ་ཅན་གྱི་བྱ་ཚིག།). Use ABCD format. Achieved after one lesson/unit.<br><br>
+      Key difference: Aims = ཆེ་བ། (broad) · Goals = འབྲིང་། (medium) · Objectives = ཆུང་བ། (specific &amp; short-term)</div></div>
+    </div>
+
+  </div>
+
+  <div class="chapter-nav-footer">
+    <button class="nav-chapter-btn" onclick="showChapterByIndex(10)">← Chapter 12</button>
+    <button class="nav-chapter-btn next" disabled>End of Notes ✓ བཀྲ་ཤིས་བདེ་ལེགས།</button>
+  </div>
+</div>
+
+</main>
+
+<script>
+const chapters = document.querySelectorAll('.chapter');
+const navBtns = document.querySelectorAll('.nav-btn');
+let currentChapter = 0;
+
+const quizData = [
+  {total:4,correct:0,answered:0},
+  {total:4,correct:0,answered:0},
+  {total:3,correct:0,answered:0},
+  {total:3,correct:0,answered:0},
+  {total:2,correct:0,answered:0},
+  {total:3,correct:0,answered:0},
+  {total:3,correct:0,answered:0},
+  {total:3,correct:0,answered:0},
+  {total:2,correct:0,answered:0},
+  {total:2,correct:0,answered:0},
+  {total:2,correct:0,answered:0},
+];
+
+function showChapter(index,btn){
+  chapters.forEach(c=>c.classList.remove('active'));
+  chapters[index].classList.add('active');
+  navBtns.forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  currentChapter=index;
+  window.scrollTo({top:0,behavior:'smooth'});
+  updateProgress();
+}
+function showChapterByIndex(index){showChapter(index,navBtns[index]);}
+function updateProgress(){
+  const pct=((currentChapter+1)/12)*100;
+  document.getElementById('progressBar').style.width=pct+'%';
+}
+
+function checkAnswer(btn,qId,correctLetter){
+  const qDiv=document.getElementById(qId);
+  const opts=qDiv.querySelectorAll('.quiz-opt');
+  const allOpts=Array.from(opts);
+  const clickedIndex=allOpts.indexOf(btn);
+  const letters=['a','b','c','d'];
+  const clickedLetter=letters[clickedIndex];
+  opts.forEach(o=>o.disabled=true);
+  const chIdx=parseInt(qId.split('-')[0].replace('q',''));
+  const correctFb=document.getElementById('fb-'+qId+'-correct');
+  const wrongFb=document.getElementById('fb-'+qId+'-wrong');
+  if(clickedLetter===correctLetter){
+    btn.classList.add('correct');
+    if(correctFb){correctFb.classList.add('show','correct');}
+    quizData[chIdx].correct++;
+  }else{
+    btn.classList.add('wrong');
+    if(wrongFb){wrongFb.classList.add('show','wrong');}
+    allOpts.forEach((o,i)=>{if(letters[i]===correctLetter)o.classList.add('correct');});
+  }
+  quizData[chIdx].answered++;
+  if(quizData[chIdx].answered===quizData[chIdx].total){setTimeout(()=>showScore(chIdx),600);}
+}
+
+function showScore(chIdx){
+  const scoreDiv=document.getElementById('score'+chIdx);
+  const scoreNum=document.getElementById('scoreNum'+chIdx);
+  const scoreMsg=document.getElementById('scoreMsg'+chIdx);
+  const c=quizData[chIdx].correct;
+  const t=quizData[chIdx].total;
+  scoreNum.textContent=c+'/'+t;
+  scoreMsg.textContent=c===t?'🎉 Perfect! ལེགས་ཤོམ་ཤིན་ཏུ་!':c>=t*.7?'👍 Good! ལེགས་འདུག! Review the missed ones.':'📚 བལྟ་སྐྱར་རྐྱབ། Keep studying!';
+  scoreDiv.classList.add('show');
+}
+function resetQuiz(chIdx){
+  quizData[chIdx]={total:quizData[chIdx].total,correct:0,answered:0};
+  const quizDiv=document.getElementById('quiz'+chIdx);
+  quizDiv.querySelectorAll('.quiz-opt').forEach(o=>{o.disabled=false;o.classList.remove('correct','wrong');});
+  quizDiv.querySelectorAll('.feedback').forEach(f=>f.classList.remove('show'));
+  document.getElementById('score'+chIdx).classList.remove('show');
+}
+
+function toggleRQ(item){item.classList.toggle('open');}
+
+const GDOC_PUB_URL='https://docs.google.com/document/d/e/2PACX-1vQOpSNApAqB_WQvr_mSgBWdNc-_6HvM36SkDV4Zfxqlkdi5BNl-AFOIcrO-1xWca35kcf1Qy6hPcJ38/pub';
+
+async function autoLoadGDocs(){
+  const status=document.getElementById('revStatus');
+  const list=document.getElementById('gdocsQAList');
+  status.className='revision-status show loading';
+  status.innerHTML='<div class="spinner"></div> Loading questions…';
+  try{
+    const response=await fetch(GDOC_PUB_URL);
+    if(!response.ok)throw new Error('Could not fetch document ('+response.status+').');
+    const html=await response.text();
+    const parser=new DOMParser();
+    const doc=parser.parseFromString(html,'text/html');
+    const paras=Array.from(doc.querySelectorAll('p, li'));
+    const lines=paras.map(p=>(p.innerText||p.textContent||'').trim()).filter(l=>l.length>0);
+    const items=parseDocLines(lines);
+    if(items.length===0){
+      status.className='revision-status show error';
+      status.innerHTML='✗ No questions found in the document.';
+      return;
+    }
+    list.innerHTML='';
+    items.forEach((item,i)=>{
+      const div=document.createElement('div');
+      div.className='rq-item';
+      div.onclick=function(){toggleRQ(this);};
+      const typeClass=item.type==='MCQ'?'mcq':item.type==='LONG'?'long':'short';
+      div.innerHTML='<div class="rq-q"><span class="rq-num">'+(i+1)+'</span><span class="rq-q-text">'+escHtml(item.q)+'</span><span class="rq-toggle">▾</span></div><div class="rq-a"><div class="rq-a-inner"><span class="rq-type-badge '+typeClass+'">'+item.type+'</span><br>'+escHtml(item.a).replace(/\n/g,'<br>')+'</div></div>';
+      list.appendChild(div);
+    });
+    status.className='revision-status show success';
+    status.innerHTML='✓ '+items.length+' questions loaded.';
+  }catch(e){
+    status.className='revision-status show error';
+    status.innerHTML='✗ '+e.message;
+  }
+}
+
+function parseDocLines(lines){
+  const items=[];
+  let i=0;
+  let currentSection='';
+  function isHeader(l){return(/ལས་ཚན|ལན་རིང་གི་དྲི་བ|ལན་ཐུང་གི་དྲི་བ|གདམ་ཁ་ཅན་གྱི་དྲི་བ|ལན་གདམ་ཁ་ཅན|ལན་གདམ་ཁ/.test(l)||/Chapter|CHAPTER/.test(l))&&l.length<120;}
+  function isQuestion(l){return /^[༡༢༣༤༥༦༧༨༩༠\d][\.\༽\)༼]/.test(l.trimStart())||/^[༡༢༣༤༥༦༧༨༩\d]+\.[༡༢༣༤༥༦༧༨༩\d]*༽/.test(l.trimStart());}
+  function isAnswer(l){return /^ལན[་།\s]/.test(l)||/^ལན་[་།\s]/.test(l)||/^\s*ལན[།\s]/.test(l);}
+  function getType(section){if(/གདམ་ཁ|MCQ/.test(section))return'MCQ';if(/ལན་རིང/.test(section))return'LONG';return'SHORT';}
+  while(i<lines.length){
+    const line=lines[i].trim();
+    if(!line){i++;continue;}
+    if(isHeader(line)){currentSection=line;i++;continue;}
+    if(isQuestion(line)){
+      let qLines=[line];let aLines=[];let j=i+1;
+      while(j<lines.length){const next=lines[j].trim();if(!next){j++;continue;}if(isAnswer(next)||isQuestion(next)||isHeader(next))break;qLines.push(next);j++;}
+      if(j<lines.length&&isAnswer(lines[j].trim())){
+        aLines.push(lines[j].trim());j++;
+        while(j<lines.length){const next=lines[j].trim();if(!next){j++;continue;}if(isQuestion(next)||isHeader(next)||isAnswer(next))break;aLines.push(next);j++;}
+      }
+      const qText=qLines.join('\n').trim();const aText=aLines.join('\n').trim();
+      if(qText&&aText)items.push({q:qText,a:aText,type:getType(currentSection)});
+      i=j;continue;
+    }
+    i++;
+  }
+  return items;
+}
+
+function escHtml(s){if(!s)return'';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+let gdocsLoaded=false;
+function showChapterWithAutoLoad(index,btn){
+  showChapter(index,btn);
+  if(index===11&&!gdocsLoaded){gdocsLoaded=true;autoLoadGDocs();}
+}
+document.querySelectorAll('.nav-btn')[11].onclick=function(){showChapterWithAutoLoad(11,this);};
 
 updateProgress();
 </script>
